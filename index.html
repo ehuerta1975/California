@@ -1,1293 +1,991 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>California Road Trip · 11–19 Sept 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Road Trip California 2026 · 11-19 Sept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sand: #f4e9d8;
-    --ocean: #0a4d68;
-    --sunset: #e85d04;
-    --palm: #2d5016;
-    --night: #1a1a2e;
-    --cream: #fffaf0;
-    --gold: #d4a017;
-    --rose: #f4978e;
+    --sunset-orange: #FF6B35;
+    --sunset-pink: #F7B2BD;
+    --pacific-blue: #006E90;
+    --palm-green: #2D5016;
+    --sand: #F4E8D0;
+    --cream: #FFF8EE;
+    --charcoal: #1A1A1A;
+    --gold: #D4A574;
+    --shadow: rgba(26, 26, 26, 0.08);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', sans-serif;
     background: var(--cream);
-    color: var(--night);
+    color: var(--charcoal);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-
-  /* HERO */
   .hero {
-    background: linear-gradient(135deg, var(--ocean) 0%, var(--sunset) 100%);
-    color: var(--cream);
-    padding: 60px 24px 80px;
-    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7B2BD 50%, #006E90 100%);
     position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '🌴☀️🌊🚗🎬';
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-    font-size: 24px;
-    letter-spacing: 30px;
-    opacity: 0.15;
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .hero .dates {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    font-style: italic;
-    opacity: 0.95;
-  }
-  .hero .route {
-    margin-top: 20px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-
-  /* QUICK INFO */
-  .quick-grid {
-    max-width: 900px;
-    margin: -40px auto 0;
-    padding: 0 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    position: relative;
-    z-index: 2;
-  }
-  .quick-card {
-    background: white;
-    border-radius: 14px;
-    padding: 16px 14px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(10, 77, 104, 0.12);
-    border: 1px solid rgba(212, 160, 23, 0.2);
-  }
-  .quick-card .icon { font-size: 24px; margin-bottom: 6px; }
-  .quick-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ocean); font-weight: 700; }
-  .quick-card .value { font-size: 14px; font-weight: 600; margin-top: 4px; }
-
-  /* SECTIONS */
-  .section {
-    max-width: 900px;
-    margin: 50px auto 0;
-    padding: 0 16px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    letter-spacing: 1.5px;
-    color: var(--ocean);
-    border-bottom: 3px solid var(--sunset);
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-  }
-
-  /* DAY CARDS */
-  .day {
-    background: white;
-    border-radius: 18px;
-    margin-bottom: 22px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    border: 1px solid rgba(10, 77, 104, 0.1);
-  }
-  .day-header {
-    background: linear-gradient(90deg, var(--ocean) 0%, #156a8a 100%);
-    color: var(--cream);
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .day-header.special { background: linear-gradient(90deg, var(--sunset) 0%, #d4a017 100%); }
-  .day-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    line-height: 1;
-    background: rgba(255,255,255,0.18);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    animation: fadeUp 1.5s ease-out;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-overline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    letter-spacing: 0.4em;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sand);
+  }
+  .hero-meta {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    letter-spacing: 0.2em;
+    margin-bottom: 3rem;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 4rem);
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    z-index: 2;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .info-bar {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 3rem 0;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .info-card {
+    border-left: 3px solid var(--sunset-orange);
+    padding-left: 1.5rem;
+  }
+  .info-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+  }
+  .info-card p { font-size: 1.05rem; font-weight: 300; }
+  .info-card strong { color: var(--sunset-pink); font-weight: 600; }
+  .section { padding: 6rem 0 4rem; }
+  .section-overline {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.4em;
+    color: var(--sunset-orange);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--pacific-blue);
+  }
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .days-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  .day-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .day-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 50px rgba(26, 26, 26, 0.12);
+  }
+  .day-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--charcoal) 0%, #2D2D2D 100%);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .day-header.day-1 { background: linear-gradient(135deg, #FF6B35, #F7B2BD); }
+  .day-header.day-2 { background: linear-gradient(135deg, #006E90, #F7B2BD); }
+  .day-header.day-3 { background: linear-gradient(135deg, #1A4D7C, #FFB627); }
+  .day-header.day-4 { background: linear-gradient(135deg, #D4A574, #FF6B35); }
+  .day-header.day-5 { background: linear-gradient(135deg, #2D5016, #D4A574); }
+  .day-header.day-6 { background: linear-gradient(135deg, #722F37, #F7B2BD); }
+  .day-header.day-7 { background: linear-gradient(135deg, #1A1A1A, #006E90); }
+  .day-header.day-8 { background: linear-gradient(135deg, #00337C, #FF6B35); }
+  .day-header.day-9 { background: linear-gradient(135deg, #4A90E2, #F7B2BD); }
+  .day-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .day-number-wrapper { display: flex; align-items: center; gap: 1.5rem; }
+  .day-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.9;
+  }
+  .day-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .day-date {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+  .day-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .day-tag {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .expand-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
     flex-shrink: 0;
   }
-  .day-info h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    line-height: 1.2;
+  .day-card.open .expand-icon { transform: rotate(180deg); }
+  .day-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .day-info .date {
-    font-size: 13px;
-    opacity: 0.9;
-    margin-top: 2px;
+  .day-card.open .day-body { max-height: 3500px; }
+  .day-content { padding: 2.5rem; }
+  .schedule { margin-bottom: 2rem; }
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+    align-items: start;
   }
-  .day-body { padding: 20px; }
-  .day-summary {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 16px;
-    border-left: 3px solid var(--gold);
-    padding-left: 12px;
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-time {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1em;
+    color: var(--sunset-orange);
+    font-size: 1rem;
+    padding-top: 2px;
   }
-
-  /* PLACES */
-  .place {
-    padding: 14px 0;
-    border-bottom: 1px dashed #e0d6c2;
+  .activity-main { font-weight: 600; margin-bottom: 0.3rem; }
+  .activity-detail { color: #666; font-size: 0.92rem; font-weight: 300; }
+  .highlight {
+    background: linear-gradient(120deg, transparent 50%, var(--sand) 50%);
+    background-size: 100% 100%;
+    padding: 0 4px;
   }
-  .place:last-child { border-bottom: none; }
-  .place h3 {
-    font-size: 16px;
-    color: var(--night);
-    margin-bottom: 6px;
+  .tips-box {
+    background: var(--sand);
+    border-left: 4px solid var(--sunset-orange);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border-radius: 0 12px 12px 0;
   }
-  .place .time {
-    background: var(--gold);
-    color: var(--night);
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-    margin-left: 8px;
-    letter-spacing: 0.5px;
+  .tips-box h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    color: var(--sunset-orange);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
   }
-  .place p {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 8px;
+  .tips-box ul { list-style: none; padding-left: 0; }
+  .tips-box li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
   }
-
-  /* TIPS */
-  .tip {
-    background: #fff8e7;
-    border-left: 3px solid var(--gold);
-    padding: 10px 12px;
-    font-size: 13px;
-    border-radius: 0 6px 6px 0;
-    margin: 8px 0;
+  .tips-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--sunset-orange);
+    font-weight: bold;
   }
-  .tip strong { color: var(--sunset); }
-
-  .alert {
-    background: #ffe5d9;
-    border-left: 3px solid var(--sunset);
-    padding: 10px 12px;
-    font-size: 13px;
-    border-radius: 0 6px 6px 0;
-    margin: 8px 0;
+  .featured-section {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 6rem 0;
+    margin: 6rem 0;
+    position: relative;
+    overflow: hidden;
   }
-
-  /* BUTTONS */
-  .btn-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+  .featured-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+    pointer-events: none;
   }
-  .map-btn, .airbnb-btn, .info-btn {
-    display: inline-block;
-    padding: 8px 14px;
+  .featured-section .section-title { color: var(--cream); }
+  .featured-section .section-title em { color: var(--sunset-orange); }
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .event-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.15s;
+    padding: 2rem;
+    transition: all 0.3s;
   }
-  .map-btn { background: var(--ocean); color: white; }
-  .airbnb-btn { background: #FF5A5F; color: white; }
-  .info-btn { background: #e0d6c2; color: var(--night); }
-  .map-btn:active, .airbnb-btn:active, .info-btn:active { transform: scale(0.96); }
-
-  /* FOOD SECTION */
+  .event-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-4px);
+  }
+  .event-emoji { font-size: 3rem; margin-bottom: 1rem; }
+  .event-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .event-when {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    color: var(--sunset-orange);
+    margin-bottom: 1rem;
+  }
+  .event-where { color: rgba(255,255,255,0.7); font-weight: 300; }
   .food-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
   }
   .food-card {
     background: white;
-    padding: 14px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-left: 4px solid var(--sunset);
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: all 0.3s;
+    border-top: 4px solid var(--sunset-orange);
   }
-  .food-card.local { border-left-color: var(--palm); }
+  .food-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .food-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
   .food-card h4 {
-    font-size: 15px;
-    margin-bottom: 4px;
-    color: var(--night);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
   }
-  .food-card .badge {
-    font-size: 10px;
-    text-transform: uppercase;
-    background: var(--sunset);
-    color: white;
-    padding: 2px 7px;
-    border-radius: 3px;
-    margin-right: 6px;
-    letter-spacing: 0.5px;
-  }
-  .food-card.local .badge { background: var(--palm); }
-  .food-card p {
-    font-size: 13px;
-    color: #555;
-    margin-top: 4px;
-  }
-
-  /* STAY CARDS */
-  .stay {
-    background: linear-gradient(135deg, #fff 0%, #fff8e7 100%);
-    border-radius: 12px;
-    padding: 18px;
-    margin: 14px 0;
-    border: 1px solid rgba(212, 160, 23, 0.3);
-  }
-  .stay h4 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    color: var(--ocean);
-    margin-bottom: 8px;
-  }
-  .stay .zone {
-    display: inline-block;
-    background: var(--ocean);
-    color: white;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .stay-list { margin-top: 10px; }
-  .stay-list li {
-    list-style: none;
-    padding: 6px 0;
-    font-size: 14px;
-    border-bottom: 1px dotted #e0d6c2;
-  }
-  .stay-list li:last-child { border-bottom: none; }
-  .stay-list strong { color: var(--sunset); }
-
-  /* DODGER HIGHLIGHT */
-  .dodger-box {
-    background: linear-gradient(135deg, #005A9C 0%, #EF3E42 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 14px;
-    margin: 16px 0;
-    text-align: center;
-  }
-  .dodger-box h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
-  /* MUSEUM BOX */
-  .museum-box {
-    background: linear-gradient(135deg, #1a1a2e 0%, #4a4e69 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 14px;
-    margin: 16px 0;
-  }
-  .museum-box h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .museum-box .alt {
-    background: rgba(255,255,255,0.1);
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 12px;
-    font-size: 13px;
-  }
-
-  /* STAY BLOCK (inside day) */
-  .stay-block {
-    background: linear-gradient(135deg, #fff8e7 0%, #fdf0d5 100%);
-    border: 2px dashed var(--gold);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin: 16px 0 8px;
-    position: relative;
-  }
-  .stay-block::before {
-    content: '🏨 RESERVAR HOSPEDAJE';
-    position: absolute;
-    top: -10px;
-    left: 14px;
-    background: var(--gold);
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 3px 10px;
-    border-radius: 4px;
-  }
-  .stay-block h4 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 17px;
-    color: var(--ocean);
-    margin: 8px 0 4px;
-  }
-  .stay-block .nights {
-    display: inline-block;
-    background: var(--sunset);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 12px;
-    margin-bottom: 8px;
-  }
-  .stay-block .hotels-mini, .stay-block .airbnb-mini {
-    margin-top: 8px;
-  }
-  .stay-block .label-mini {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--ocean);
-    margin-bottom: 4px;
-  }
-  .stay-block .stay-item {
-    padding: 5px 0;
-    font-size: 13px;
-    border-bottom: 1px dotted #e0d6c2;
-  }
-  .stay-block .stay-item:last-child { border-bottom: none; }
-  .stay-block .stay-item strong { color: var(--sunset); }
-  .stay-block .mini-btn-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
-
-  /* VIDEO IDEAS */
-  .video-ideas {
-    background: var(--night);
-    color: var(--cream);
-    padding: 14px;
-    border-radius: 10px;
-    margin-top: 14px;
-  }
-  .video-ideas h4 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
+  .food-rating {
     color: var(--gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
   }
-  .video-ideas ul { padding-left: 18px; }
-  .video-ideas li { font-size: 13px; margin: 4px 0; }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: #888;
-    font-size: 13px;
-    margin-top: 30px;
+  .food-desc {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.5;
   }
-  .footer .emoji { font-size: 28px; margin-bottom: 8px; }
-
-  /* TABLE OF CONTENTS */
-  .toc {
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .practical-card {
     background: white;
-    border-radius: 14px;
-    padding: 18px;
-    margin: 20px 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    max-width: 900px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px var(--shadow);
   }
-  @media (min-width: 900px) {
-    .toc { margin: 30px auto; }
-  }
-  .toc h3 {
+  .practical-card h4 {
     font-family: 'Bebas Neue', sans-serif;
-    color: var(--ocean);
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    letter-spacing: 0.2em;
+    color: var(--pacific-blue);
+    margin-bottom: 1rem;
   }
-  .toc a {
+  .practical-card ul { list-style: none; }
+  .practical-card li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 0.95rem;
+  }
+  .practical-card li:last-child { border-bottom: none; }
+  .reservas-section {
+    background: linear-gradient(135deg, #FFE5D9 0%, #FFD7BA 100%);
+    padding: 4rem 0;
+    margin-top: 4rem;
+  }
+  .reservas-list { display: grid; gap: 1rem; margin-top: 2rem; }
+  .reserva-item {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .reserva-info strong {
     display: block;
-    padding: 6px 0;
-    color: var(--night);
-    text-decoration: none;
-    font-size: 14px;
-    border-bottom: 1px dashed #e0d6c2;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
   }
-  .toc a:last-child { border-bottom: none; }
-  .toc a:hover { color: var(--sunset); }
+  .reserva-info span { color: #666; font-size: 0.9rem; }
+  .reserva-link {
+    background: var(--sunset-orange);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .reserva-link:hover {
+    background: var(--charcoal);
+    transform: translateY(-2px);
+  }
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 4rem 0 2rem;
+    text-align: center;
+  }
+  footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  footer p {
+    opacity: 0.7;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+  .footer-meta {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+  }
+  @media (max-width: 768px) {
+    .schedule-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+    .schedule-time { font-size: 0.85rem; }
+    .day-content { padding: 1.5rem; }
+    .day-header { padding: 1.5rem; }
+    .section { padding: 4rem 0 2rem; }
+    .reserva-item { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>CALIFORNIA ROAD TRIP</h1>
-  <div class="dates">11 al 19 de Septiembre, 2026</div>
-  <div class="route">Tijuana → San Diego → Los Ángeles</div>
-</div>
-
-<!-- QUICK INFO -->
-<div class="quick-grid">
-  <div class="quick-card">
-    <div class="icon">🛬</div>
-    <div class="label">Llegada</div>
-    <div class="value">TIJ · 4:46 PM</div>
-  </div>
-  <div class="quick-card">
-    <div class="icon">🚗</div>
-    <div class="label">Carro</div>
-    <div class="value">Renta en SD</div>
-  </div>
-  <div class="quick-card">
-    <div class="icon">⚾</div>
-    <div class="label">Partido</div>
-    <div class="value">Dodgers · 18 sep</div>
-  </div>
-  <div class="quick-card">
-    <div class="icon">🛫</div>
-    <div class="label">Regreso</div>
-    <div class="value">SAN · 19 · 3 PM</div>
-  </div>
-</div>
-
-<!-- TOC -->
-<div class="toc">
-  <h3>📋 Índice del viaje</h3>
-  <a href="#dia1">Día 1 · Vie 11 · Llegada a Tijuana → San Diego</a>
-  <a href="#dia2">Día 2 · Sáb 12 · La Jolla, Balboa, Coronado</a>
-  <a href="#dia3">Día 3 · Dom 13 · Old Town + Cabrillo + Julian</a>
-  <a href="#dia4">Día 4 · Lun 14 · SD → LA + Outlets + Mulholland</a>
-  <a href="#dia5">Día 5 · Mar 15 · LA → Santa Bárbara</a>
-  <a href="#dia6">Día 6 · Mié 16 · Santa Bárbara → LA por PCH</a>
-  <a href="#dia7">Día 7 · Jue 17 · LA: Hollywood, Beverly Hills, Venice + Griffith</a>
-  <a href="#dia8">Día 8 · Vie 18 · 🏟️ DÍA DEL PARTIDO + Broad</a>
-  <a href="#dia9">Día 9 · Sáb 19 · LA → SD + Vuelo</a>
-  <a href="#comida">🍽️ Dónde comer (la guía completa)</a>
-  <a href="#outlets">🛍️ Outlets</a>
-</div>
-
-<!-- DÍAS -->
-<div class="section">
-
-<!-- DÍA 1 -->
-<div class="day" id="dia1">
-  <div class="day-header">
-    <div class="day-number">1</div>
-    <div class="day-info">
-      <h2>Llegada a Tijuana → San Diego</h2>
-      <div class="date">Viernes 11 de Septiembre</div>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-overline">11 — 19 Septiembre 2026</div>
+    <h1>California<br><em>Dreaming</em></h1>
+    <div class="hero-meta">San Diego × Los Angeles</div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Días</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Partidos</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Museos</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Playas</div></div>
+      <div class="stat"><div class="stat-num">1</div><div class="stat-label">Wine Tour</div></div>
     </div>
   </div>
-  <div class="day-body">
-    <p class="day-summary">Día de logística. Llegada, cruce fronterizo, instalación y cena tranquila.</p>
+  <div class="scroll-hint">Desliza ↓</div>
+</section>
 
-    <div class="alert">
-      <strong>⚠️ Plan realista:</strong> Llegada TIJ 4:46 PM. Cruce a SD toma de 1–2 hrs (a veces más). Llegarán al hotel entre 7–9 PM. <strong>NO planear nada turístico, solo cena cerca.</strong>
+<section class="info-bar">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card"><h3>San Diego</h3><p><strong>Sea Harbor Hotel</strong><br>Point Loma · 2 noches</p></div>
+      <div class="info-card"><h3>Los Angeles</h3><p><strong>Airbnb Casa FIFA</strong><br>Gardena · 7 noches · Piscina privada</p></div>
+      <div class="info-card"><h3>NFL · Domingo 13</h3><p><strong>Chargers vs Cardinals</strong><br>SoFi Stadium · 1:25 PM</p></div>
+      <div class="info-card"><h3>MLB · Viernes 18</h3><p><strong>Dodgers vs Giants</strong><br>Dodger Stadium · 10:10 PM</p></div>
     </div>
+  </div>
+</section>
 
-    <div class="place">
-      <h3>🛂 Cruce fronterizo San Ysidro</h3>
-      <p>Recomendación: usar <strong>SENTRI/Ready Lane</strong> si tienen pasaporte con chip. Sin esto, fila normal puede tomar 2+ hrs. App "CBP One" muestra tiempos en vivo.</p>
-      <div class="tip"><strong>Tip:</strong> Crucen sin maletas pesadas en mano. Ten lista la documentación: pasaporte, FMM si aplica, comprobante de carro de renta en SD.</div>
-    </div>
+<section class="section" id="itinerario">
+  <div class="container">
+    <div class="section-overline">Itinerario Día a Día</div>
+    <h2 class="section-title">El <em>plan</em>.</h2>
+    <p class="section-subtitle">Nueve días entre el océano Pacífico, los museos icónicos, los estadios mundialmente famosos, y los viñedos de Malibú. Click en cada día para ver los detalles.</p>
 
-    <div class="place">
-      <h3>🚗 Recoger carro en San Diego <span class="time">~7 PM</span></h3>
-      <p>Si rentaron en aeropuerto SAN, tomen Uber/Lyft desde San Ysidro (~$30 USD, 30 min). Si rentaron downtown SD, ahí mismo.</p>
-    </div>
+    <div class="days-grid">
 
-    <div class="place">
-      <h3>🍝 Cena en Little Italy <span class="time">Noche</span></h3>
-      <p>Mejor zona para una primera noche. Ambiente, fácil parking, muchas opciones.</p>
-      <div class="tip"><strong>Recomendados accesibles:</strong> <strong>Puesto</strong> (tacos gourmet ~$15) · <strong>Filippi's Pizza Grotto</strong> (italiano familiar desde 1950) · <strong>Mona Lisa Italian Foods</strong> (deli + cenas baratas)</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Little+Italy+San+Diego" target="_blank">📍 Little Italy</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Puesto+Little+Italy+San+Diego" target="_blank">🌮 Puesto</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Filippis+Pizza+Grotto+Little+Italy" target="_blank">🍕 Filippi's</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Mona+Lisa+Italian+Foods+San+Diego" target="_blank">🍝 Mona Lisa</a>
-      </div>
-    </div>
-
-    <!-- HOSPEDAJE SAN DIEGO -->
-    <div class="stay-block">
-      <span class="nights">📅 3 noches · 11, 12 y 13 sep</span>
-      <h4>Dónde dormir: Pacific Beach o Mission Bay</h4>
-      <p style="font-size: 13px; color: #555;">Zona de playa relajada, parking gratis fácil, acceso rápido a I-5 para todo lo demás.</p>
-
-      <div class="hotels-mini">
-        <div class="label-mini">🏨 Opciones de hotel</div>
-        <div class="stay-item"><strong>Bahia Resort Hotel</strong> (Mission Bay) — Clásico, parking gratis, en la bahía. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Bahia+Resort+Hotel+San+Diego" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Pacific Terrace Hotel</strong> (Pacific Beach) — Frente al mar, más premium. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Pacific+Terrace+Hotel+San+Diego" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Surfer Beach Hotel</strong> — Económico, en la playa. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Surfer+Beach+Hotel+Pacific+Beach" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Catamaran Resort Hotel</strong> (Mission Bay) — Tropical, playa privada, parking. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Catamaran+Resort+Hotel+San+Diego" target="_blank">📍</a></div>
-      </div>
-
-      <div class="airbnb-mini">
-        <div class="label-mini" style="margin-top: 10px;">🏠 Airbnb por zona</div>
-        <div class="mini-btn-row">
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Pacific-Beach--San-Diego--CA/homes?adults=4&checkin=2026-09-11&checkout=2026-09-14&amenities%5B%5D=9" target="_blank">Pacific Beach</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Mission-Beach--San-Diego--CA/homes?adults=4&checkin=2026-09-11&checkout=2026-09-14&amenities%5B%5D=9" target="_blank">Mission Beach</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/North-Park--San-Diego--CA/homes?adults=4&checkin=2026-09-11&checkout=2026-09-14&amenities%5B%5D=9" target="_blank">North Park</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/La-Jolla--San-Diego--CA/homes?adults=4&checkin=2026-09-11&checkout=2026-09-14&amenities%5B%5D=9" target="_blank">La Jolla</a>
+      <article class="day-card">
+        <div class="day-header day-1" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">01</div>
+              <div class="day-info">
+                <h3>Llegada a San Diego</h3>
+                <div class="day-date">Viernes 11 Sept · Point Loma</div>
+              </div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🌅 Atardecer</span><span class="day-tag">🍤 Mariscos</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
         </div>
-      </div>
-
-      <div class="tip" style="margin-top: 10px;">
-        <strong>⚠️ Filtro clave:</strong> "Free parking on premises" siempre activado.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 2 -->
-<div class="day" id="dia2">
-  <div class="day-header">
-    <div class="day-number">2</div>
-    <div class="day-info">
-      <h2>San Diego: La Jolla, Balboa, Coronado</h2>
-      <div class="date">Sábado 12 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">El día más turístico de SD. Mucho que cubrir, manejar entre puntos.</p>
-
-    <div class="place">
-      <h3>🦭 La Jolla Cove <span class="time">Mañana</span></h3>
-      <p>Leones marinos, focas, kayaks. El icono de SD. Llega 9–10 AM antes del calor y crowds.</p>
-      <div class="tip"><strong>Tip:</strong> Estaciona en <strong>Coast Blvd</strong> (gratis si llegas temprano). Camina al Children's Pool para ver focas bebés.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=La+Jolla+Cove" target="_blank">📍 Ver en Maps</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌳 Balboa Park <span class="time">Mediodía</span></h3>
-      <p>Comparable al Central Park de NY. 17 museos, jardines, el San Diego Zoo. Caminar la arquitectura española.</p>
-      <div class="tip"><strong>Tip:</strong> Si quieren ver UN museo, vayan al <strong>Museum of Us</strong> (antropología, en el edificio de la torre). El Zoo aparte requiere medio día.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Balboa+Park+San+Diego" target="_blank">📍 Balboa Park</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌉 Coronado Island <span class="time">Tarde</span></h3>
-      <p>Cruzar el Coronado Bridge (vista increíble). <strong>Hotel del Coronado</strong> (donde se filmó "Some Like It Hot"), playa de arena dorada brillante.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+del+Coronado" target="_blank">📍 Hotel del Coronado</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌅 Sunset Cliffs <span class="time">Atardecer · ¡NO NEGOCIABLE!</span></h3>
-      <p>El mejor atardecer de SD. Acantilados sobre el Pacífico. Llegar 45 min antes del sunset.</p>
-      <div class="tip"><strong>Sunset 12 sep:</strong> ~6:55 PM. Llegar 6:00 PM. Parking gratis en Sunset Cliffs Blvd.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Sunset+Cliffs+Natural+Park" target="_blank">📍 Sunset Cliffs</a>
-      </div>
-    </div>
-
-    <div class="video-ideas">
-      <h4>🎬 Ideas de video</h4>
-      <ul>
-        <li>"Día completo en San Diego: lo que SÍ vale la pena"</li>
-        <li>Time-lapse del atardecer en Sunset Cliffs</li>
-        <li>Reacción a los leones marinos en La Jolla (siempre funciona)</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 3 -->
-<div class="day" id="dia3">
-  <div class="day-header">
-    <div class="day-number">3</div>
-    <div class="day-info">
-      <h2>Old Town + Cabrillo + Julian (opcional)</h2>
-      <div class="date">Domingo 13 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">Día más relajado. Historia, vistas y un pueblito opcional.</p>
-
-    <div class="place">
-      <h3>🌮 Old Town San Diego <span class="time">Mañana</span></h3>
-      <p>Cuna histórica de California. Casas de adobe, mariachis, tacos auténticos.</p>
-      <div class="tip"><strong>Desayuno:</strong> <strong>Old Town Mexican Café</strong> — tradición, ven hacer tortillas en la ventana. Pide los chilaquiles.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Old+Town+San+Diego" target="_blank">📍 Old Town</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Old+Town+Mexican+Cafe+San+Diego" target="_blank">🌮 Old Town Mexican Café</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🚢 Cabrillo National Monument <span class="time">Mediodía</span></h3>
-      <p>Faro histórico. Vistas panorámicas de SD, el océano y Tijuana en días claros. $20 por carro.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cabrillo+National+Monument" target="_blank">📍 Cabrillo</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🍎 Julian (opcional) <span class="time">Tarde</span></h3>
-      <p>Pueblo minero a 1 hora en las montañas. Famoso por sus pays de manzana, ambiente Viejo Oeste.</p>
-      <div class="tip"><strong>Si NO quieren manejar:</strong> sustituyan por <strong>Seaport Village</strong> (caminando junto al puerto). Si van, prueben el pie de manzana de <strong>Julian Pie Company</strong>.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Julian+California" target="_blank">📍 Julian</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌃 Cena en Gaslamp Quarter <span class="time">Noche</span></h3>
-      <p>El centro nocturno de SD. Edificios victorianos, restaurantes, bares. Domingo tiene buen ambiente pero más tranquilo.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Gaslamp+Quarter+San+Diego" target="_blank">📍 Gaslamp Quarter</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 4 -->
-<div class="day" id="dia4">
-  <div class="day-header">
-    <div class="day-number">4</div>
-    <div class="day-info">
-      <h2>San Diego → Los Ángeles (con Outlets)</h2>
-      <div class="date">Lunes 14 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">Día de carretera por la costa. Outlets en el camino + paradas pintorescas. ~190 km, 3-4 hrs con paradas.</p>
-
-    <div class="place">
-      <h3>🛍️ Carlsbad Premium Outlets <span class="time">Mañana · ¡PARADA #1!</span></h3>
-      <p>Justo en I-5 a mitad de camino. 90+ tiendas de marca con descuentos hasta 65%. Sin desviarse de la ruta.</p>
-      <div class="tip"><strong>Marcas top:</strong> Nike, Adidas, Kate Spade, Cole Haan, Calvin Klein, Levi's, Theory, Polo Ralph Lauren. <br><strong>Tiempo recomendado:</strong> 2–3 hrs.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Carlsbad+Premium+Outlets" target="_blank">📍 Carlsbad Outlets</a>
-        <a class="info-btn" href="https://www.premiumoutlets.com/outlet/carlsbad" target="_blank">🔗 Web oficial</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🏖️ Laguna Beach <span class="time">Mediodía / Comida</span></h3>
-      <p>Pueblo costero hermoso. Calas escondidas, galerías de arte. Para comida fresca con vista.</p>
-      <div class="tip"><strong>Comer accesible:</strong> <strong>Lobster West</strong> en Encinitas (mejor langosta roll, ~$20) o <strong>Taco Loco</strong> en Laguna (tacos de pescado frente al mar, ~$10-15).</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Laguna+Beach" target="_blank">📍 Laguna Beach</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lobster+West+Encinitas" target="_blank">🦞 Lobster West</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Taco+Loco+Laguna+Beach" target="_blank">🌮 Taco Loco</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>⛵ Newport Beach (rápido) <span class="time">Tarde</span></h3>
-      <p>Parada rápida. Balboa Island con sus chocolate-covered frozen bananas (famosos).</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Newport+Beach+California" target="_blank">📍 Newport</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌃 Mulholland Drive Overlook <span class="time">Atardecer · Llegar 6:00 PM</span></h3>
-      <p>Vista panorámica de LA. Mirador clásico que sale en mil películas (Mulholland Drive, La La Land). Llegada perfecta a LA con vista al letrero de Hollywood.</p>
-      <div class="alert"><strong>⚠️ Importante:</strong> Griffith Observatory está <strong>CERRADO LOS LUNES</strong>, por eso este día vamos a Mulholland. Veremos Griffith en el Día 7 (jueves).</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hollywood+Bowl+Overlook+Mulholland+Drive" target="_blank">📍 Mulholland Overlook</a>
-      </div>
-    </div>
-
-    <div class="video-ideas">
-      <h4>🎬 Ideas de video</h4>
-      <ul>
-        <li>"Lo que compré en outlets de California" (sale 100% en TikTok)</li>
-        <li>"Llegando a Los Ángeles por primera vez" desde el mirador</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 5 -->
-<div class="day" id="dia5">
-  <div class="day-header">
-    <div class="day-number">5</div>
-    <div class="day-info">
-      <h2>LA → Santa Bárbara (norte rápido)</h2>
-      <div class="date">Martes 15 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">Subimos al norte para alcanzar a "rascar" Big Sur sin comprometernos demasiado.</p>
-
-    <div class="place">
-      <h3>🌊 Malibu por la PCH <span class="time">Mañana</span></h3>
-      <p>Manejar la Pacific Coast Highway. Parada en <strong>El Matador State Beach</strong> (formaciones rocosas espectaculares, súper fotogénica).</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=El+Matador+State+Beach" target="_blank">📍 El Matador Beach</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🌷 Solvang (opcional) <span class="time">Mediodía</span></h3>
-      <p>Pueblo danés con molinos de viento y panaderías. Súper Instagram. Si paran, prueben los <strong>aebleskiver</strong> (donas danesas) en <strong>Solvang Restaurant</strong>.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Solvang+California" target="_blank">📍 Solvang</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Solvang+Restaurant+aebleskiver" target="_blank">🥞 Solvang Restaurant</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🏛️ Santa Bárbara <span class="time">Tarde / Noche</span></h3>
-      <p>"La Riviera Americana". Arquitectura colonial española, vinos, Funk Zone. Cenar y dormir aquí.</p>
-      <div class="tip"><strong>Cena legendaria:</strong> <strong>La Super-Rica Taqueria</strong> — los tacos favoritos de Julia Child, fila garantizada pero vale TODA la pena. Cash only.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Santa+Barbara+California" target="_blank">📍 Santa Bárbara</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=La+Super+Rica+Taqueria+Santa+Barbara" target="_blank">🌮 La Super-Rica</a>
-      </div>
-    </div>
-
-    <!-- HOSPEDAJE SANTA BÁRBARA -->
-    <div class="stay-block">
-      <span class="nights">📅 1 noche · 15 sep</span>
-      <h4>Dónde dormir: Funk Zone o East Beach</h4>
-      <p style="font-size: 13px; color: #555;">Caminando a restaurantes, vinos urbanos y la playa.</p>
-
-      <div class="hotels-mini">
-        <div class="label-mini">🏨 Opciones de hotel</div>
-        <div class="stay-item"><strong>Hotel Californian</strong> — Boutique en Funk Zone, todo caminando. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Hotel+Californian+Santa+Barbara" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>The Goodland</strong> — Vibra surf-chic, más relajado, parking gratis. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=The+Goodland+Hotel+Santa+Barbara" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Hotel Milo Santa Barbara</strong> — Frente a East Beach, opción media. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Hotel+Milo+Santa+Barbara" target="_blank">📍</a></div>
-      </div>
-
-      <div class="airbnb-mini">
-        <div class="label-mini" style="margin-top: 10px;">🏠 Airbnb</div>
-        <div class="mini-btn-row">
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Santa-Barbara--CA/homes?adults=4&checkin=2026-09-15&checkout=2026-09-16&amenities%5B%5D=9" target="_blank">Santa Bárbara</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Funk-Zone--Santa-Barbara--CA/homes?adults=4&checkin=2026-09-15&checkout=2026-09-16&amenities%5B%5D=9" target="_blank">Funk Zone</a>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">Tarde</div><div><div class="activity-main">✈️ Llegada aeropuerto SAN</div><div class="activity-detail">Recoger carro de renta + check-in Sea Harbor Hotel</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🌅 Sunset Cliffs Natural Park</div><div class="activity-detail">Atardecer cinematográfico · 10 min del hotel</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍤 Cena: Point Loma Seafoods</span></div><div class="activity-detail">Mariscos frescos · clam chowder · fish & chips · $$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:00 PM</div><div><div class="activity-main">🍹 Bali Hai Restaurant</div><div class="activity-detail">Tiki drinks con vista a la bahía</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Atardecer en sept cae ~6:50 PM, llega 30 min antes</li><li>Llena tanque cerca del hotel para mañana</li></ul>
+            </div>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tip" style="margin-top: 10px;">
-        <strong>💡 Tip:</strong> Es solo 1 noche, vale la pena pagar un poco más por estar caminando a todo. Lleguen ya tarde así que no van a aprovechar mucho el hotel de noche.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 6 -->
-<div class="day" id="dia6">
-  <div class="day-header">
-    <div class="day-number">6</div>
-    <div class="day-info">
-      <h2>Santa Bárbara → LA por la costa</h2>
-      <div class="date">Miércoles 16 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">Mañana relajada en SB, regreso a LA al final del día. Llegar a hotel/Airbnb de LA.</p>
-
-    <div class="place">
-      <h3>🌅 Stearns Wharf <span class="time">Mañana</span></h3>
-      <p>El muelle histórico de SB. Desayuno con vista, leones marinos abajo.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Stearns+Wharf+Santa+Barbara" target="_blank">📍 Stearns Wharf</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🍷 Funk Zone <span class="time">Mediodía</span></h3>
-      <p>Distrito de vinos urbanos y arte callejero. Catas de vino a 5 min del centro.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Funk+Zone+Santa+Barbara" target="_blank">📍 Funk Zone</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🛣️ PCH de regreso a LA <span class="time">Tarde</span></h3>
-      <p>Ruta lenta pero épica. Para en miradores. Llegar a LA al atardecer.</p>
-    </div>
-
-    <!-- HOSPEDAJE LOS ÁNGELES -->
-    <div class="stay-block">
-      <span class="nights">📅 3 noches · 16, 17 y 18 sep</span>
-      <h4>Dónde dormir: West Hollywood o Mid-City ⭐</h4>
-      <p style="font-size: 13px; color: #555;">El sweet spot con carro: central a todo. Santa Monica es bonita pero cada salida son 45 min al resto. West Hollywood los pone a 20 min de Hollywood, Beverly Hills, Downtown y Dodger Stadium.</p>
-
-      <div class="hotels-mini">
-        <div class="label-mini">🏨 Opciones de hotel</div>
-        <div class="stay-item"><strong>The Hollywood Roosevelt</strong> — Icónico, frente al Walk of Fame, piscina con pintura de Hockney. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Hollywood+Roosevelt+Hotel" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Magic Castle Hotel</strong> (Hollywood) — Mejor relación calidad/precio. Desayuno gratis, piscina. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Magic+Castle+Hotel+Hollywood" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Hotel Wilshire</strong> (Mid-Wilshire) — Moderno, rooftop pool, cerca de Beverly Hills. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Hotel+Wilshire+Los+Angeles" target="_blank">📍</a></div>
-        <div class="stay-item"><strong>Freehand LA</strong> (Downtown) — Boutique con rooftop, ideal para estar cerca del partido. <a class="map-btn" style="margin-left: 4px; padding: 3px 8px; font-size: 11px;" href="https://www.google.com/maps/search/?api=1&query=Freehand+Los+Angeles+Hotel" target="_blank">📍</a></div>
-      </div>
-
-      <div class="airbnb-mini">
-        <div class="label-mini" style="margin-top: 10px;">🏠 Airbnb por zona</div>
-        <div class="mini-btn-row">
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/West-Hollywood--CA/homes?adults=4&checkin=2026-09-16&checkout=2026-09-19&amenities%5B%5D=9" target="_blank">West Hollywood ⭐</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Hollywood--Los-Angeles--CA/homes?adults=4&checkin=2026-09-16&checkout=2026-09-19&amenities%5B%5D=9" target="_blank">Hollywood</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Silver-Lake--Los-Angeles--CA/homes?adults=4&checkin=2026-09-16&checkout=2026-09-19&amenities%5B%5D=9" target="_blank">Silver Lake</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Larchmont--Los-Angeles--CA/homes?adults=4&checkin=2026-09-16&checkout=2026-09-19&amenities%5B%5D=9" target="_blank">Larchmont</a>
-          <a class="airbnb-btn" href="https://www.airbnb.com/s/Sherman-Oaks--Los-Angeles--CA/homes?adults=4&checkin=2026-09-16&checkout=2026-09-19&amenities%5B%5D=9" target="_blank">Sherman Oaks</a>
+      <article class="day-card">
+        <div class="day-header day-2" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">02</div>
+              <div class="day-info"><h3>La Jolla → Gardena</h3><div class="day-date">Sábado 12 Sept · SD → LA</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🦭 Leones marinos</span><span class="day-tag">🛒 Súper</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
         </div>
-      </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">8:30 AM</div><div><div class="activity-main">☕ Desayuno + check-out hotel</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">🔭 Mount Soledad</div><div class="activity-detail">Mirador 360° SD · Gratis</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🦭 La Jolla Cove</div><div class="activity-detail">Leones marinos + Coast Walk</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🌊 Children's Pool + 🐚 Tide Pools</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:45 PM</div><div><div class="activity-main"><span class="highlight">🍳 Almuerzo: Cove House</span></div><div class="activity-detail">Eggs Benedict gourmet vista mar · 4.6⭐ · $$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">🏖️ Torrey Pines State Beach</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:30 PM</div><div><div class="activity-main">🚗 Salida hacia LA por I-5</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🏝️ Parada Laguna Beach</div><div class="activity-detail">Crescent Bay Point · 1 hora</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:45 PM</div><div><div class="activity-main"><span class="highlight">🛒 Parada VONS Gardena</span></div><div class="activity-detail">Abastecer despensa Airbnb · 30 min</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main">🏡 Check-in Airbnb Gardena</div><div class="activity-detail">Casa con piscina privada</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🍕 Cena ligera en casa</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Descarga Tides Near Me para Tide Pools</li><li>Lleva zapatos de agua</li><li>Lista compras: huevos, café, fruta, agua, cerveza, snacks</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-      <div class="tip" style="margin-top: 10px;">
-        <strong>⚠️ Filtros clave en LA:</strong> Siempre <strong>"Free parking on premises"</strong> — sin esto, cobran $30–50/noche por parking. Lean reseñas que mencionen ruido (Hollywood es ruidoso).
+      <article class="day-card">
+        <div class="day-header day-3" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">03</div>
+              <div class="day-info"><h3>🏈 ¡CHARGERS!</h3><div class="day-date">Domingo 13 Sept · SoFi Stadium</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🏈 NFL</span><span class="day-tag">🏊 Piscina</span><span class="day-tag">🌊 Beach</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">9:00 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🏊 Piscina del Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🚗 Salir hacia SoFi (15-20 min)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:00 PM</div><div><div class="activity-main">🅿️ Parking SoFi ($50 reservado)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main">🎉 Tailgate + estadio</div><div class="activity-detail">Nachos, hot dogs, garlic fries</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:25 PM</div><div><div class="activity-main"><span class="highlight">🏈 CHARGERS vs CARDINALS</span></div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🚗 Bajar a Manhattan Beach</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🌊 Manhattan Beach Pier + atardecer</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Cena: JOEY Manhattan Beach</span></div><div class="activity-detail">Steakhouse moderno · pasta lobster · 4.8⭐ · $$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🏡 Regreso al Airbnb · jacuzzi</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>SoFi es cashless: usa tarjeta o app</li><li>Bolsa transparente o pequeña (regla NFL)</li><li>Bloqueador SPF 50+</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-4" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">04</div>
+              <div class="day-info"><h3>Hollywood</h3><div class="day-date">Lunes 14 Sept · Walk of Fame</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">⭐ Walk of Fame</span><span class="day-tag">🌭 Pink's</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🚗 Salir hacia Hollywood (35-40 min)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">⭐ Hollywood Walk of Fame</div><div class="activity-detail">Estrellas + Chinese Theatre</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main">🛍️ Hollywood & Highland Center</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main"><span class="highlight">🌭 Almuerzo: Pink's Hot Dogs</span></div><div class="activity-detail">ÍCONO desde 1939 · 4.5⭐ · 13,646 reseñas · $6-12</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">📸 TCL Chinese Theatre</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🎤 Dolby Theatre (Oscars)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">📸 Lake Hollywood Park</div><div class="activity-detail">Foto del letrero sin caminar</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:30 PM</div><div><div class="activity-main">🌅 Atardecer Hollywood Hills</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Cena: The Grove / Farmers Market Fairfax</span></div><div class="activity-detail">Mercado histórico 1934 · variedad · $-$$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Cuidado con scammers disfrazados de personajes</li><li>Pink's tiene fila larga: paciencia, vale la pena</li><li>Griffith cierra lunes → mañana martes lo vemos</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-5" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">05</div>
+              <div class="day-info"><h3>Museos + Griffith</h3><div class="day-date">Martes 15 Sept · Día cultural</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🎨 Arte</span><span class="day-tag">🔭 Atardecer Griffith</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">8:30 AM</div><div><div class="activity-main">☕ Desayuno + salida</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">💎 Rodeo Drive / Beverly Hills</div><div class="activity-detail">Foto cartel · tiendas de lujo</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🖼️ The Getty Center</div><div class="activity-detail">GRATIS · arquitectura blanca + jardines · Parking $25</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:30 PM</div><div><div class="activity-main"><span class="highlight">🥪 Almuerzo: Original Farmers Market Fairfax</span></div><div class="activity-detail">Mercado 1934 · 100+ puestos · $-$$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🎨 LACMA + Urban Light</div><div class="activity-detail">Las 202 lámparas vintage · Picasso, Magritte · $25</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🔭 Griffith Observatory</div><div class="activity-detail">GRATIS · abierto 12 PM-10 PM martes</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:50 PM</div><div><div class="activity-main"><span class="highlight">🌅 ATARDECER en Griffith</span></div><div class="activity-detail">El mejor atardecer de LA · vista al Hollywood Sign</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main"><span class="highlight">🍝 Cena: Bottega Louie (Downtown)</span></div><div class="activity-detail">Italiano premium · pasta + macarons coloridos · $$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:30 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Reserva The Broad Museum AHORA para mañana</li><li>Parking Griffith llena después de 4 PM</li><li>The Getty tiene tram gratis para subir</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-6" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">06</div>
+              <div class="day-info"><h3>🍷 Wine Tour + Malibu</h3><div class="day-date">Miércoles 16 Sept · PCH</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🍷 Wine</span><span class="day-tag">🦙 Animales</span><span class="day-tag">🌊 Playas</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">8:00 AM</div><div><div class="activity-main">☕ Desayuno temprano + salir</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:15 AM</div><div><div class="activity-main">🚗 Llegar a Saddle Rock Ranch</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main"><span class="highlight">🍷 MALIBU WINE TOUR VW Bus / 4x4</span></div><div class="activity-detail">SIN HIKE · 2h · animales (llamas, ovejas) · 4 wine tastings · $65-85 · RESERVAR</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main"><span class="highlight">🦞 Almuerzo: Malibu Farm Pier</span></div><div class="activity-detail">Brunch en el pier · vista al océano · $$</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">2:00 PM</div><div><div class="activity-main">🪨 El Matador Beach</div><div class="activity-detail">Cuevas playeras épicas · 150 escalones</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">🌊 Zuma Beach + Point Dume</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:30 PM</div><div><div class="activity-main">🌅 Atardecer en Malibu Pier</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🦪 Cena: Reel Inn Malibu</span></div><div class="activity-detail">Seafood shack icónico · ostiones + fish & chips · $15-25</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🚗 Regreso Gardena (1h)</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Reservar Wine Tour ANTES en malibuwinehikes.com/tours</li><li>Especifica VW Bus o 4x4 (NO el hike)</li><li>Edad mínima Wine Tour: 21 años</li><li>Zapatos cómodos para El Matador</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-7" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">07</div>
+              <div class="day-info"><h3>Citadel + DTLA</h3><div class="day-date">Jueves 17 Sept · Outlets + Cultura</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🛍️ Outlet</span><span class="day-tag">🏛️ The Broad</span><span class="day-tag">🛒 Grand Central</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">9:00 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🚗 Salir hacia Citadel Outlets (25 min)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🛍️ Citadel Outlets (2.5h)</div><div class="activity-detail">Coach, Nike, Levi's, Hugo Boss · 4.5⭐ · 31,871 reseñas</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main"><span class="highlight">🍳 Almuerzo: GRAND CENTRAL MARKET</span></div><div class="activity-detail">ÍCONO desde 1917 · 4.5⭐ · Eggslut, Wexler's Deli, Olio Pizza, Broad Street Oysters</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">🇲🇽 Olvera Street + Union Station</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:30 PM</div><div><div class="activity-main">🏛️ The Broad Museum</div><div class="activity-detail">GRATIS con reserva · Infinity Mirror Room</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:00 PM</div><div><div class="activity-main">🎭 Walt Disney Concert Hall</div><div class="activity-detail">Exterior Frank Gehry · foto</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🎨 Arts District</div><div class="activity-detail">Murales + breweries</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍽️ Cena: Bestia (Arts District)</span></div><div class="activity-detail">Italiano moderno top LA · $$$ · RESERVAR OpenTable</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:00 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Reservar The Broad 1-2 semanas antes en thebroad.org</li><li>Pide VIP Coupon Book en Citadel</li><li>Reservar Bestia/Bavel 3-5 días antes</li><li>Tax CA: 9.5% extra</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-8" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">08</div>
+              <div class="day-info"><h3>⚾ ¡DODGERS!</h3><div class="day-date">Viernes 18 Sept · Costa + MLB</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🌊 Santa Monica</span><span class="day-tag">🛹 Venice</span><span class="day-tag">⚾ MLB</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">☕ Desayuno + piscina Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🚗 Manejar a Santa Monica (25-30 min)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">12:00 PM</div><div><div class="activity-main">🎡 Santa Monica Pier + Pacific Park</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Almuerzo: Hinano Cafe Venice</span></div><div class="activity-detail">CLÁSICO años 60 · cheeseburgers · jukebox + surfboards · 4.6⭐ · $8-15</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🛹 Venice Beach Boardwalk</div><div class="activity-detail">Skaters · Muscle Beach</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">🛍️ Abbot Kinney Blvd</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">5:00 PM</div><div><div class="activity-main">🏡 Regreso Airbnb · descansar</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🥗 Cena ligera en casa</div><div class="activity-detail">Vienen los Dodger Dogs</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main">🚗 Salir hacia Dodger Stadium (35-40 min)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main">🅿️ Llegada estadio ($35 parking)</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">9:00 PM</div><div><div class="activity-main"><span class="highlight">🌭 DODGER DOGS + cerveza</span></div><div class="activity-detail">ÍCONO obligatorio · ~$7-10</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:10 PM</div><div><div class="activity-main"><span class="highlight">⚾ DODGERS vs GIANTS</span></div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:00 AM</div><div><div class="activity-main">🏁 Final partido</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:45 AM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips del día</h4>
+              <ul><li>Verifica tu boleto en MLB Ballpark app</li><li>Llega 1.5h antes para el ambiente</li><li>Chamarra ligera (noches frescas)</li><li>NO te desveles, mañana sales temprano</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-header day-9" onclick="toggleDay(this)">
+          <div class="day-header-content">
+            <div class="day-number-wrapper">
+              <div class="day-number">09</div>
+              <div class="day-info"><h3>Regreso + Vuelo</h3><div class="day-date">Sábado 19 Sept · Adiós California</div></div>
+            </div>
+            <div class="day-tags"><span class="day-tag">🛫 Vuelo 3 PM</span></div>
+            <div class="expand-icon">▼</div>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-content">
+            <div class="schedule">
+              <div class="schedule-item"><div class="schedule-time">7:30 AM</div><div><div class="activity-main">☕ Desayuno rápido + maletas</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:00 AM</div><div><div class="activity-main"><span class="highlight">🚗 CHECK-OUT + I-5 Sur</span></div><div class="activity-detail">Gardena = 5 min al on-ramp</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🛬 Llegada a San Diego</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">⛽ Llenar tanque</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🚗 Devolver carro en SAN</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🛂 Check-in vuelo + seguridad</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main">🍴 Almuerzo en aeropuerto</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main"><span class="highlight">✈️ VUELO DE REGRESO</span></div></div></div>
+            </div>
+            <div class="tips-box">
+              <h4>Tips CRÍTICOS</h4>
+              <ul><li>Sal a las 8 AM MÁXIMO</li><li>Después de 9:30 AM = riesgo de vuelo</li><li>Sábado AM = menos tráfico</li><li>Carga maletas la noche anterior</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="featured-section">
+  <div class="container">
+    <div class="section-overline">Los Momentos Estrella</div>
+    <h2 class="section-title">Dos <em>partidos</em>.</h2>
+    <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Los eventos centrales del viaje: NFL + MLB en estadios mundialmente icónicos.</p>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-emoji">🏈</div>
+        <h3>Chargers vs Cardinals</h3>
+        <div class="event-when">Domingo 13 · 1:25 PM</div>
+        <p class="event-where">SoFi Stadium — Inglewood<br>15-20 min desde el Airbnb</p>
+      </div>
+      <div class="event-card">
+        <div class="event-emoji">⚾</div>
+        <h3>Dodgers vs Giants</h3>
+        <div class="event-when">Viernes 18 · 10:10 PM</div>
+        <p class="event-where">Dodger Stadium — Elysian Park<br>35-40 min desde el Airbnb</p>
+      </div>
+      <div class="event-card">
+        <div class="event-emoji">🍷</div>
+        <h3>Malibu Wine Tour</h3>
+        <div class="event-when">Miércoles 16 · 9:30 AM</div>
+        <p class="event-where">Saddle Rock Ranch — Malibu<br>VW Bus o 4x4 · sin caminata</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- DÍA 7 -->
-<div class="day" id="dia7">
-  <div class="day-header">
-    <div class="day-number">7</div>
-    <div class="day-info">
-      <h2>LA: Hollywood, Beverly Hills, Venice</h2>
-      <div class="date">Jueves 17 de Septiembre</div>
+<section class="section">
+  <div class="container">
+    <div class="section-overline">Comida Icónica</div>
+    <h2 class="section-title">Sabores <em>California</em>.</h2>
+    <p class="section-subtitle">Los lugares más auténticos y reconocidos · Mariscos costeros, burgers vintage, mercados históricos.</p>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-emoji">🌭</div><h4>Pink's Hot Dogs</h4><div class="food-rating">★ 4.5 · 13,646 reseñas</div><p class="food-desc">Hollywood, desde 1939. Hot dogs con nombres de celebridades. $6-12</p></div>
+      <div class="food-card"><div class="food-emoji">🛒</div><h4>Grand Central Market</h4><div class="food-rating">★ 4.5 · 36,650 reseñas</div><p class="food-desc">DTLA, mercado histórico 1917. Eggslut, Wexler's, Olio Pizza, ostiones.</p></div>
+      <div class="food-card"><div class="food-emoji">🍳</div><h4>Cove House</h4><div class="food-rating">★ 4.6 · 1,000 reseñas</div><p class="food-desc">La Jolla. Brunch gourmet con vista al océano · eggs benedict. $$</p></div>
+      <div class="food-card"><div class="food-emoji">🍤</div><h4>Point Loma Seafoods</h4><div class="food-rating">★ Local favorito</div><p class="food-desc">SD. Mariscos frescos · clam chowder, fish & chips, ceviche. $$</p></div>
+      <div class="food-card"><div class="food-emoji">🦞</div><h4>Malibu Farm Pier</h4><div class="food-rating">★ 4.5</div><p class="food-desc">Malibu. Brunch sobre el pier con vista al océano. $$</p></div>
+      <div class="food-card"><div class="food-emoji">🦪</div><h4>Reel Inn Malibu</h4><div class="food-rating">★ Icónico Malibu</div><p class="food-desc">Seafood shack casual · ostiones + fish & chips · vibe playero. $15-25</p></div>
+      <div class="food-card"><div class="food-emoji">🍔</div><h4>JOEY Manhattan Beach</h4><div class="food-rating">★ 4.8 · 5,030 reseñas</div><p class="food-desc">Steakhouse moderno · pasta lobster + cheesecake. $$</p></div>
+      <div class="food-card"><div class="food-emoji">🍔</div><h4>Hinano Cafe Venice</h4><div class="food-rating">★ 4.6 · 1,740 reseñas</div><p class="food-desc">Clásico vintage años 60 · cheeseburgers · jukebox. $8-15</p></div>
+      <div class="food-card"><div class="food-emoji">🍝</div><h4>Bottega Louie</h4><div class="food-rating">★ Top LA</div><p class="food-desc">Downtown. Italiano premium · pasta + macarons coloridos. $$</p></div>
+      <div class="food-card"><div class="food-emoji">🍽️</div><h4>Bestia</h4><div class="food-rating">★ 4.7 · Top 50 LA</div><p class="food-desc">Arts District. Italiano moderno · reservar con tiempo. $$$</p></div>
+      <div class="food-card"><div class="food-emoji">🥪</div><h4>Farmers Market Fairfax</h4><div class="food-rating">★ Histórico 1934</div><p class="food-desc">Mid-City. Mercado con 100+ puestos · variedad. $-$$</p></div>
+      <div class="food-card"><div class="food-emoji">🌭</div><h4>Dodger Dogs</h4><div class="food-rating">★ Obligatorio</div><p class="food-desc">Dodger Stadium. El hot dog ÍCONO del estadio. Imperdible.</p></div>
     </div>
   </div>
-  <div class="day-body">
-    <p class="day-summary">El día clásico de LA. El tour completo para que no se quede nada.</p>
+</section>
 
-    <div class="place">
-      <h3>⭐ Walk of Fame + TCL Chinese Theatre <span class="time">Mañana</span></h3>
-      <p>Las estrellas en el piso, las huellas en el cemento.</p>
-      <div class="tip"><strong>Parking:</strong> <strong>Hollywood & Highland</strong> mall ($3 por 2 hrs con validación). Suban al último piso para foto del Hollywood Sign.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hollywood+Walk+of+Fame" target="_blank">📍 Walk of Fame</a>
+<section class="reservas-section">
+  <div class="container">
+    <div class="section-overline">Pre-Trip Checklist</div>
+    <h2 class="section-title">Reservas <em>críticas</em>.</h2>
+    <p class="section-subtitle">Estas reservas debes hacer ANTES del viaje para no quedarte sin lugar.</p>
+    <div class="reservas-list">
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🍷 Malibu Wine Tour (VW Bus / 4x4)</strong><span>1-2 semanas antes · Especificar VW Bus o 4x4</span></div>
+        <a href="https://www.malibuwinehikes.com/tours" target="_blank" class="reserva-link">Reservar</a>
+      </div>
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🏛️ The Broad Museum (GRATIS)</strong><span>1-2 semanas antes · Para Infinity Mirror Room</span></div>
+        <a href="https://www.thebroad.org" target="_blank" class="reserva-link">Reservar</a>
+      </div>
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🅿️ Parking SoFi Stadium</strong><span>Cuanto antes · El precio sube el día del partido</span></div>
+        <a href="https://www.sofistadium.com" target="_blank" class="reserva-link">Reservar</a>
+      </div>
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🅿️ Parking Dodger Stadium</strong><span>$35 anticipado vs $50 en taquilla</span></div>
+        <a href="https://www.mlb.com/dodgers/ballpark/transportation/parking" target="_blank" class="reserva-link">Reservar</a>
+      </div>
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🍽️ Cena Arts District jueves 17</strong><span>3-5 días antes · Bestia, Bavel, o Manuela</span></div>
+        <a href="https://www.opentable.com" target="_blank" class="reserva-link">OpenTable</a>
+      </div>
+      <div class="reserva-item">
+        <div class="reserva-info"><strong>🍤 Cena Malibu miércoles 16</strong><span>3-5 días antes · Reel Inn o Nobu</span></div>
+        <a href="https://www.opentable.com" target="_blank" class="reserva-link">OpenTable</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="place">
-      <h3>💎 Beverly Hills + Rodeo Drive <span class="time">Mediodía</span></h3>
-      <p>El barrio más famoso del mundo. Rodeo Drive con sus marcas de lujo. Hotel Beverly Hills (el rosa).</p>
-      <div class="tip"><strong>Parking gratis 2 hrs:</strong> Beverly South Public Parking (216 S Beverly Blvd).</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Rodeo+Drive+Beverly+Hills" target="_blank">📍 Rodeo Drive</a>
+<section class="section">
+  <div class="container">
+    <div class="section-overline">Info Práctica</div>
+    <h2 class="section-title">Lo <em>esencial</em>.</h2>
+    <div class="practical-grid">
+      <div class="practical-card">
+        <h4>📱 Apps Obligatorias</h4>
+        <ul><li>✈️ Aerolínea</li><li>🏠 Airbnb</li><li>🚗 Waze + Google Maps</li><li>🅿️ SpotHero</li><li>⚾ MLB Ballpark</li><li>🏈 Chargers app</li><li>🌊 Tides Near Me</li><li>🍽️ OpenTable</li></ul>
+      </div>
+      <div class="practical-card">
+        <h4>🎒 Imprescindibles</h4>
+        <ul><li>👟 Tenis cómodos</li><li>☀️ Bloqueador SPF 50+</li><li>🕶️ Lentes de sol</li><li>🧥 Suéter ligero (noches frescas)</li><li>🩳 Trajes de baño</li><li>🔌 Cargador portátil</li><li>💧 Botella de agua</li></ul>
+      </div>
+      <div class="practical-card">
+        <h4>💰 Presupuesto</h4>
+        <ul><li>🍤 Comida: $445-605/persona</li><li>⛽ Gasolina: $100-150</li><li>🅿️ Parking: $200-300</li><li>🎢 Atracciones: $150-200</li><li>🛍️ Shopping: Variable</li><li>💵 Cash respaldo: $200</li></ul>
+      </div>
+      <div class="practical-card">
+        <h4>🚗 Tips de Manejo</h4>
+        <ul><li>Hora pico: 7-10 AM y 4-7 PM</li><li>Sábados: menos tráfico</li><li>Llena tanque cada noche</li><li>Toll roads con FasTrak</li><li>Speeding ticket: $400+</li></ul>
+      </div>
+      <div class="practical-card">
+        <h4>📍 Distancias desde Gardena</h4>
+        <ul><li>SoFi: 15-20 min</li><li>Manhattan Beach: 15-20 min</li><li>Dodger Stadium: 30-40 min</li><li>Hollywood: 30-40 min</li><li>Santa Monica: 25-35 min</li><li>Malibu: 1h 15min</li><li>SAN: 1h 45min</li></ul>
+      </div>
+      <div class="practical-card">
+        <h4>⚠️ Recordatorios</h4>
+        <ul><li>Tax CA: 9.5% extra</li><li>Tip: 18-22% restaurantes</li><li>Tap water OK</li><li>WhatsApp/iMessage</li><li>Pasaporte siempre</li><li>2.5h antes al vuelo</li></ul>
       </div>
     </div>
-
-    <div class="place">
-      <h3>🏖️ Venice Beach + Muscle Beach <span class="time">Tarde</span></h3>
-      <p>El boardwalk más famoso. Skaters, artistas callejeros, muscle beach. Caminen al canal Venice.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Venice+Beach+California" target="_blank">📍 Venice Beach</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🎡 Santa Monica Pier <span class="time">Atardecer · 6:00 PM</span></h3>
-      <p>Rueda de la fortuna, muelle clásico, fin de la Route 66. El atardecer aquí es icónico.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Santa+Monica+Pier" target="_blank">📍 Santa Monica Pier</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🔭 Griffith Observatory <span class="time">Noche · 8:00 PM</span></h3>
-      <p>Vista del letrero de Hollywood, downtown LA iluminado, telescopios gratis al anochecer. Entrada gratis, cierra 10 PM.</p>
-      <div class="tip"><strong>Tip:</strong> Jueves abierto 12 PM – 10 PM. Estacionen abajo (Greek Theatre o road) y caminen para evitar tráfico arriba. Llegar después del Santa Monica Pier es perfecto porque ya está oscuro y se ve LA iluminado.</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Griffith+Observatory" target="_blank">📍 Griffith Observatory</a>
-      </div>
-    </div>
   </div>
-</div>
+</section>
 
-<!-- DÍA 8 - PARTIDO -->
-<div class="day" id="dia8">
-  <div class="day-header special">
-    <div class="day-number">8</div>
-    <div class="day-info">
-      <h2>🏟️ Día del Partido + Museo Broad</h2>
-      <div class="date">Viernes 18 de Septiembre · EL DÍA GRANDE</div>
-    </div>
+<footer>
+  <div class="container">
+    <h3>California, allá vamos.</h3>
+    <p>9 días, 2 partidos, 4 museos, 5 playas, 1 wine tour, e infinitas memorias por crear.</p>
+    <div class="footer-meta">11 — 19 Septiembre 2026</div>
   </div>
-  <div class="day-body">
-    <p class="day-summary">Mañana relajada en Downtown LA, museo top, comida icónica, y al estadio.</p>
+</footer>
 
-    <div class="museum-box">
-      <h3>🖼️ The Broad Museum</h3>
-      <p style="font-size: 14px; opacity: 0.95;">El museo de arte contemporáneo más cool de LA, y <strong>es GRATIS</strong>. Está justo en Downtown, a 10 min en carro del Dodger Stadium. Perfecto para esta mañana.</p>
-      <p style="font-size: 13px; margin-top: 10px;">⭐ <strong>Lo que no pueden perderse:</strong> el <strong>Infinity Mirror Room de Yayoi Kusama</strong> (45 segundos para fotos, súper viral en TikTok), <em>Tulips</em> de Jeff Koons, y la colección de Warhol/Basquiat/Lichtenstein.</p>
-      <div class="alert" style="background: rgba(255,255,255,0.15); color: white; border-left-color: var(--gold); margin-top: 12px;">
-        <strong>⚠️ SÚPER IMPORTANTE:</strong> Reservar boletos online <strong>con anticipación</strong> en <a href="https://www.thebroad.org" target="_blank" style="color: var(--gold);">thebroad.org</a>. Aunque son gratis, las entradas con horario se agotan. La Infinity Room tiene fila aparte una vez dentro.
-      </div>
-      <div class="alt">
-        <strong>🆚 Alternativa:</strong> Si quieren museo más grande/clásico, <strong>LACMA</strong> está en Mid-Wilshire (Museum Row). Recién abrió las <strong>David Geffen Galleries</strong> (mayo 2026). Tiene la famosa <strong>Urban Light</strong> (las 202 farolas para foto). Cuesta ~$28 USD. Está más lejos del Dodger Stadium.
-      </div>
-      <div class="btn-row" style="margin-top: 12px;">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Broad+Museum+Los+Angeles" target="_blank">📍 The Broad</a>
-        <a class="info-btn" href="https://www.thebroad.org" target="_blank">🎟️ Reservar boletos</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🍳 Grand Central Market <span class="time">Comida 12–2 PM</span></h3>
-      <p>El food hall más legendario de LA. Caminando del Broad. Cada puesto es famoso por algo.</p>
-      <div class="tip"><strong>Qué pedir:</strong> <strong>Eggslut</strong> (sándwich de huevo viral) · <strong>Tacos Tumbras a Tomas</strong> (los mejores carnitas de LA) · <strong>Sticky Rice</strong> (tailandés que aman los locales) · <strong>McConnell's</strong> (helado).</div>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Grand+Central+Market+Los+Angeles" target="_blank">📍 Grand Central Market</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Eggslut+Grand+Central+Market" target="_blank">🥚 Eggslut</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🏛️ Walt Disney Concert Hall <span class="time">Caminata · 30 min</span></h3>
-      <p>Frente al Broad. El edificio de Frank Gehry, una obra maestra de arquitectura. Pueden caminar afuera gratis.</p>
-    </div>
-
-    <div class="place">
-      <h3>📚 The Last Bookstore <span class="time">Opcional · Cerca</span></h3>
-      <p>La librería más Instagram de LA. Túnel de libros, escultura de páginas. A 10 min caminando.</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Last+Bookstore+Los+Angeles" target="_blank">📍 The Last Bookstore</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>😴 Descanso en hotel <span class="time">3–4:30 PM</span></h3>
-      <p>Importantísimo. Vuelvan al hotel, refresquen, cambien ropa cómoda. El partido es largo.</p>
-    </div>
-
-    <div class="dodger-box">
-      <h3>⚾ DODGER STADIUM · 🎆 FRIDAY NIGHT FIREWORKS</h3>
-      <p style="font-size: 14px;">Salir a las <strong>4:30 PM</strong> · Llegar <strong>5:30 PM</strong> (gates abren 2 hrs antes)</p>
-      <p style="margin-top: 8px; font-size: 14px;"><strong>Primer pitch: ~7:10 PM</strong> · <strong>Dodgers vs San Francisco Giants</strong> (rival clásico)</p>
-      <div style="background: rgba(255, 215, 0, 0.25); padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 13px; border: 1px solid rgba(255, 215, 0, 0.5);">
-        🎆 <strong>BONUS HUGE:</strong> Los viernes hay <strong>fuegos artificiales gratis</strong> después del juego, y los fans pueden <strong>bajar al campo</strong> para verlos desde el outfield. Experiencia única.
-      </div>
-      <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; margin-top: 12px; text-align: left; font-size: 13px;">
-        <strong>🚗 Parking:</strong> $35–50 USD online (anticipado) / $50–75 día del partido. <strong>Compren online en dodgers.com.</strong><br><br>
-        <strong>🍽️ Comer en el estadio:</strong> Dodger Dog (obligatorio), nachos en helmet souvenir.<br><br>
-        <strong>🎽 Lleva:</strong> chamarra ligera (refresca de noche), gorra Dodgers (si quieren foto épica), <strong>cobija pequeña</strong> para sentarse en el pasto durante los fuegos.<br><br>
-        <strong>📱 App:</strong> "MLB Ballpark" para ticket digital + ofertas.<br><br>
-        <strong>🎆 Tip de fuegos:</strong> Al final del 8vo inning, formen fila en center field. Los dejan bajar al campo. El mejor spot es frente a 2da base.
-      </div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Dodger+Stadium" target="_blank" style="margin-top: 12px; background: white; color: #005A9C;">📍 Dodger Stadium</a>
-    </div>
-
-    <div class="video-ideas">
-      <h4>🎬 Ideas de video</h4>
-      <ul>
-        <li>"Día completo en Downtown LA por menos de $30" (Broad es gratis, Market es barato)</li>
-        <li>Vlog del partido — siempre funciona, especialmente si ganan Dodgers</li>
-        <li>Reacción al Infinity Mirror Room (la toma estrella)</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- DÍA 9 -->
-<div class="day" id="dia9">
-  <div class="day-header">
-    <div class="day-number">9</div>
-    <div class="day-info">
-      <h2>LA → San Diego + Vuelo</h2>
-      <div class="date">Sábado 19 de Septiembre</div>
-    </div>
-  </div>
-  <div class="day-body">
-    <p class="day-summary">Día de regreso. Vuelo SAN a las 3 PM. Salir temprano para no estresarse.</p>
-
-    <div class="alert">
-      <strong>⏰ Plan estricto:</strong> Vuelo 3 PM significa estar en aeropuerto a las 1:00 PM. Devolver carro 12:30. Salir de LA <strong>antes de 8:30 AM</strong> sin falla (tráfico I-5 puede ser brutal).
-    </div>
-
-    <div class="place">
-      <h3>☕ Desayuno rápido en LA <span class="time">7:30 AM</span></h3>
-      <p>Algo rápido cerca del hotel. <strong>The Original Pantry</strong> (clásico desde 1924, abierto 24/7, ~$10-15) o <strong>Du-Par's</strong> en The Grove (pancakes legendarios, ~$15). Si quieren super rápido: <strong>Café Dulce</strong> en Little Tokyo (~$5-8).</p>
-      <div class="btn-row">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Original+Pantry+Cafe+Los+Angeles" target="_blank">🍳 The Pantry</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Du-Pars+Restaurant+Los+Angeles" target="_blank">🥞 Du-Par's</a>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cafe+Dulce+Little+Tokyo" target="_blank">☕ Café Dulce</a>
-      </div>
-    </div>
-
-    <div class="place">
-      <h3>🚗 Salida de LA hacia SD <span class="time">8:30 AM</span></h3>
-      <p>Tomar I-5 sur. ~2.5 hrs sin tráfico hasta SAN.</p>
-    </div>
-
-    <div class="place">
-      <h3>⛽ Devolver carro <span class="time">~12:30 PM</span></h3>
-      <p>Carga gasolina antes (penalty caro si no). Llega a aeropuerto SAN.</p>
-    </div>
-
-    <div class="place">
-      <h3>🛫 Vuelo SAN <span class="time">3:00 PM</span></h3>
-      <p>¡Buen viaje de regreso! 🎉</p>
-    </div>
-
-    <div class="tip">
-      <strong>💡 Si sobra tiempo en SD:</strong> el aeropuerto SAN está a 10 min de Little Italy. Si llegan con margen, comida rápida ahí antes de devolver el carro.
-    </div>
-  </div>
-</div>
-
-</div>
-
-<!-- DÓNDE COMER -->
-<div class="section" id="comida">
-  <h2 class="section-title">🍽️ Dónde Comer · Guía Completa</h2>
-  <p style="margin-bottom: 16px; color: #555;">Los <span style="background: var(--sunset); color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">FAMOSOS</span> que toda la gente conoce, y los <span style="background: var(--palm); color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">LOCAL</span> donde realmente come la gente que vive ahí.</p>
-
-  <!-- DESAYUNOS -->
-  <h3 style="font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ocean); margin-top: 20px;">🍳 Desayunos (huevos benedictinos, pancakes, omelettes)</h3>
-  <p style="font-size: 13px; color: #777; margin-bottom: 12px;">Para los días que quieran desayuno tipo americano completo. Todas son opciones accesibles (~$12-18 por persona).</p>
-
-  <div class="food-grid">
-    <!-- San Diego -->
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Breakfast Republic (varios en SD)</h4>
-      <p>🌟 El favorito de SD para desayunos. Pancake flight (varios sabores chiquitos), huevos benedictinos con twist, chilaquiles. ~$15. Hay varios: Pacific Beach, North Park, Liberty Station.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Breakfast+Republic+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Morning Glory (Little Italy SD)</h4>
-      <p>Cool, hipster, ambiente vibrante. Pancakes súper esponjosos, huevos benedictinos clásicos, soufflé de huevo viral. ~$15-18. Lleguen temprano, se llena.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Morning+Glory+Little+Italy+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>The Broken Yolk Cafe (varios SD)</h4>
-      <p>Clásico de SD. Omelettes gigantes (con 12 huevos el famoso), build-your-own, huevos rancheros, chicken & waffles. Porciones enormes. ~$13-16.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Broken+Yolk+Cafe+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>The Cottage (La Jolla)</h4>
-      <p>En La Jolla, perfecto para combinar con Día 2. Famoso por sus pancakes de ricotta con limón. Ambiente coastal. ~$15-18.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Cottage+La+Jolla" target="_blank">📍 Maps</a>
-    </div>
-
-    <!-- Los Ángeles -->
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Du-Par's Restaurant (The Grove, LA)</h4>
-      <p>🥞 Pancakes legendarios desde 1938 — considerados los mejores de LA. French toast top, huevos benedictinos clásicos. ~$15. Parking validado en Farmers Market.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Du-Pars+Restaurant+Farmers+Market+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>The Original Pantry Café (Downtown LA)</h4>
-      <p>Abierto 24/7 desde 1924, nunca ha cerrado. Desayuno clásico americano: huevos, hotcakes, bacon, hash browns. ~$10-15. Cash only.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Original+Pantry+Cafe+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Alcove Café & Bakery (Los Feliz)</h4>
-      <p>En dos bungalows históricos, ambiente súper Instagram. Huevos benedictinos top, pancakes, smoked salmon stacks. ~$15-18. Cerca del Griffith.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Alcove+Cafe+Bakery+Los+Feliz" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Home Restaurant (Los Feliz / Silver Lake)</h4>
-      <p>Patio precioso lleno de plantas. Huevos benedictinos con crab cake, pancakes, omelettes. Promedio del plato ~$11. Top opción.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank">📍 Maps</a>
-    </div>
-
-    <!-- Santa Bárbara -->
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Cajun Kitchen Cafe (Santa Bárbara)</h4>
-      <p>Para el Día 6 antes de salir. Especialidad: huevos benedictinos con estilo cajún + andouille sausage. Pancakes y omelettes también top. ~$13-16.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cajun+Kitchen+Cafe+Santa+Barbara" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-
-  <h3 style="font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ocean); margin-top: 30px;">🌮 San Diego</h3>
-
-  <div class="food-grid">
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>Hodad's (Ocean Beach)</h4>
-      <p>Hamburguesas legendarias. Salió en Food Network. Decoración con placas de carros.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hodads+Ocean+Beach" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>Phil's BBQ</h4>
-      <p>Costillas que se caen del hueso. Una institución. Fila pero rápida.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Phils+BBQ+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Las Cuatro Milpas (Barrio Logan)</h4>
-      <p>Tacos y tortillas hechas a mano desde 1933. Fila desde las 7 AM pero rapidísima. <strong>Cash only.</strong></p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Milpas+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Lucha Libre Gourmet Taco Shop (Mission Hills)</h4>
-      <p>Tacos extravagantes con decoración de luchadores mexicanos. Oro para video.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lucha+Libre+Gourmet+Taco+Shop" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Convoy Street (Kearny Mesa)</h4>
-      <p>El barrio coreano/asiático real de SD, no el turístico. Mejor K-BBQ y ramen de toda la ciudad.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Convoy+Street+San+Diego" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Carnitas' Snack Shack (North Park)</h4>
-      <p>Sándwich de carnitas con chicharrón. Los locales mueren por esto.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Carnitas+Snack+Shack+North+Park" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-
-  <h3 style="font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ocean); margin-top: 30px;">🌴 Los Ángeles</h3>
-
-  <div class="food-grid">
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>In-N-Out Burger</h4>
-      <p>Obligatorio. Pide "Animal Style" (orden secreta). Hay varios en LA.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>Pink's Hot Dogs (Hollywood)</h4>
-      <p>Desde 1939. Hot dogs gigantes. Foto con las celebridades en la pared.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Pinks+Hot+Dogs+Hollywood" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>Roscoe's House of Chicken & Waffles</h4>
-      <p>Pollo frito + waffles. El favorito de Obama.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Roscoes+Chicken+Waffles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card">
-      <h4><span class="badge">famoso</span>Randy's Donuts (Inglewood)</h4>
-      <p>La dona gigante en el techo, ícono de LA. Salió en mil películas. Donas a ~$2. Foto obligatoria.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Randys+Donuts+Inglewood" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Grand Central Market (Downtown)</h4>
-      <p>El food hall favorito de todos. Eggslut, Tacos Tumbras a Tomás, todo bajo un techo. <strong>Va perfecto antes del partido el día 18.</strong></p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Grand+Central+Market+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Guisados (Boyle Heights)</h4>
-      <p>Los mejores tacos de cazuela de LA. Cochinita, mole, chicharrón en salsa verde.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Guisados+Boyle+Heights" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Howlin' Ray's (Chinatown)</h4>
-      <p>Nashville hot chicken. Fila de 1 hora pero LA mejor. Niveles de picante desde "country" hasta "howl".</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Howlin+Rays+Chinatown" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Mariscos Jalisco (Truck East LA)</h4>
-      <p>Food truck famoso. Sus tacos de camarón dorados son legendarios. ~$3 cada uno. Bourdain los amaba.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Mariscos+Jalisco+Truck+East+LA" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Langer's Deli (MacArthur Park)</h4>
-      <p>Desde 1947. El sandwich #19 de pastrami es considerado el mejor de USA. ~$22 pero alcanza para 2.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Langers+Delicatessen+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Leo's Tacos Truck</h4>
-      <p>El mejor taco al pastor de LA, en un food truck en gasolinera. ~$2.50 cada taco. Abierto hasta tarde.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Leos+Tacos+Truck+La+Brea" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-
-  <h3 style="font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ocean); margin-top: 30px;">🏖️ Santa Bárbara</h3>
-
-  <div class="food-grid">
-    <div class="food-card local">
-      <h4><span class="badge">local</span>La Super-Rica Taqueria</h4>
-      <p>El favorito de Julia Child. Tacos auténticos mexicanos. <strong>Cash only, fila garantizada.</strong></p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=La+Super+Rica+Taqueria" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>Lilly's Taqueria</h4>
-      <p>El taquería favorito de los locales de Santa Bárbara. Tacos a ~$2.50, lengua y adobada legendarios.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lillys+Taqueria+Santa+Barbara" target="_blank">📍 Maps</a>
-    </div>
-    <div class="food-card local">
-      <h4><span class="badge">local</span>The Habit Burger (donde nació)</h4>
-      <p>Cadena que nació en Santa Bárbara en 1969. Charburger increíble a ~$6. Vale la pena por la historia.</p>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Habit+Burger+Santa+Barbara+State+Street" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-</div>
-
-<!-- OUTLETS -->
-<div class="section" id="outlets">
-  <h2 class="section-title">🛍️ Outlets</h2>
-  <p style="margin-bottom: 16px; color: #555;">Te recomendé meter <strong>Carlsbad</strong> (día 4) porque está exactamente en la ruta SD→LA, sin desviarse. Aquí están los otros mejores por si cambian de opinión:</p>
-
-  <div class="stay" style="border-color: var(--sunset); background: linear-gradient(135deg, #fff 0%, #ffe5d9 100%);">
-    <span class="zone" style="background: var(--sunset);">⭐ INCLUIDO EN ITINERARIO</span>
-    <h4>Carlsbad Premium Outlets</h4>
-    <p style="font-size: 14px; color: #555; margin-top: 6px;"><strong>Cuándo:</strong> Día 4 (dom 14 sep), camino de SD a LA.</p>
-    <p style="font-size: 14px; margin-top: 8px;">90+ tiendas, justo en I-5. Marcas: Nike, Adidas, Kate Spade, Cole Haan, Calvin Klein, Levi's, Theory, Polo Ralph Lauren.</p>
-    <div class="btn-row" style="margin-top: 10px;">
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Carlsbad+Premium+Outlets" target="_blank">📍 Maps</a>
-      <a class="info-btn" href="https://www.premiumoutlets.com/outlet/carlsbad" target="_blank">🔗 Web</a>
-    </div>
-  </div>
-
-  <div class="stay">
-    <span class="zone">OTRAS OPCIONES</span>
-    <h4>🏰 Citadel Outlets (LA — Commerce)</h4>
-    <p style="font-size: 14px; color: #555; margin-top: 6px;">El único outlet dentro de LA. Forma de castillo asirio. 130+ tiendas. <strong>Está en I-5 saliendo de LA hacia SD</strong> — podrían hacerlo el día 19 si tienen MUY temprano salida, pero apretado con el vuelo de 3 PM.</p>
-    <p style="font-size: 13px; color: #777; margin-top: 6px;"><em>Sales tax: 9.9% (más alto que otros).</em></p>
-    <div class="btn-row" style="margin-top: 10px;">
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Citadel+Outlets+Los+Angeles" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-
-  <div class="stay">
-    <h4>🏜️ Desert Hills Premium Outlets (Cabazon)</h4>
-    <p style="font-size: 14px; color: #555; margin-top: 6px;">El de <strong>marcas de LUJO</strong>: Gucci, Prada, Balenciaga, Versace, Saint Laurent. <strong>Pero está a 2 hrs al este de LA</strong> (rumbo a Palm Springs). No está en su ruta natural. Solo si quieren un día completo de shopping de lujo.</p>
-    <div class="btn-row" style="margin-top: 10px;">
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Desert+Hills+Premium+Outlets" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-
-  <div class="stay">
-    <h4>🌳 Camarillo Premium Outlets</h4>
-    <p style="font-size: 14px; color: #555; margin-top: 6px;">160+ tiendas. Está cerca de Santa Bárbara (~45 min sur). <strong>Bonus:</strong> sales tax más bajo (7.25%). Pero se les desviaría del PCH. No notablemente mejor que Carlsbad.</p>
-    <div class="btn-row" style="margin-top: 10px;">
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Camarillo+Premium+Outlets" target="_blank">📍 Maps</a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <div class="emoji">🌴☀️🚗🌊⚾🌅</div>
-  <p><strong>California Road Trip 2026</strong></p>
-  <p style="margin-top: 6px;">9 días · 2 estados de ánimo: relajado y épico</p>
-  <p style="margin-top: 14px; font-size: 11px;">Hecho con ❤️ para el viaje</p>
-</div>
+<script>
+  function toggleDay(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  }
+  window.addEventListener('load', () => {
+    const firstDay = document.querySelector('.day-card');
+    if (firstDay) firstDay.classList.add('open');
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-card, .food-card, .practical-card, .event-card, .reserva-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
