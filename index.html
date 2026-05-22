@@ -21,184 +21,57 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7B2BD 50%, #006E90 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 2rem;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    animation: fadeUp 1.5s ease-out;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-overline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    letter-spacing: 0.4em;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: clamp(3rem, 10vw, 8rem);
-    line-height: 0.95;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.2);
-  }
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--sand);
-  }
-  .hero-meta {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    letter-spacing: 0.2em;
-    margin-bottom: 3rem;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: clamp(1rem, 4vw, 4rem);
-    flex-wrap: wrap;
-    margin-top: 3rem;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+  .hero { min-height: 100vh; background: linear-gradient(135deg, #FF6B35 0%, #F7B2BD 50%, #006E90 100%); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 2rem; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; color: white; max-width: 900px; animation: fadeUp 1.5s ease-out; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-overline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 0.4em; margin-bottom: 1rem; opacity: 0.9; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(3rem, 10vw, 8rem); line-height: 0.95; margin-bottom: 1.5rem; text-shadow: 0 4px 30px rgba(0,0,0,0.2); }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--sand); }
+  .hero-meta { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); letter-spacing: 0.2em; margin-bottom: 3rem; }
+  .hero-stats { display: flex; justify-content: center; gap: clamp(1rem, 4vw, 4rem); flex-wrap: wrap; margin-top: 3rem; }
   .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.2em;
-    margin-top: 0.5rem;
-    opacity: 0.9;
-  }
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.3em;
-    font-size: 0.9rem;
-    z-index: 2;
-    animation: bounce 2s infinite;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  .info-bar {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 3rem 0;
-  }
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-  }
-  .info-card {
-    border-left: 3px solid var(--sunset-orange);
-    padding-left: 1.5rem;
-  }
-  .info-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1; }
+  .stat-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.2em; margin-top: 0.5rem; opacity: 0.9; }
+  .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: white; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.3em; font-size: 0.9rem; z-index: 2; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .info-bar { background: var(--charcoal); color: var(--cream); padding: 3rem 0; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  .info-card { border-left: 3px solid var(--sunset-orange); padding-left: 1.5rem; }
+  .info-card h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.8rem; font-size: 0.95rem; }
   .info-card p { font-size: 1.05rem; font-weight: 300; }
   .info-card strong { color: var(--sunset-pink); font-weight: 600; }
+  .info-card a.map-link { color: var(--sunset-orange); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; margin-top: 0.5rem; padding: 4px 12px; background: rgba(255,107,53,0.15); border-radius: 100px; }
+  .info-card a.map-link:hover { background: var(--sunset-orange); color: white; }
   .section { padding: 6rem 0 4rem; }
-  .section-overline {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.4em;
-    color: var(--sunset-orange);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1rem;
-    color: var(--charcoal);
-  }
-  .section-title em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--pacific-blue);
-  }
-  .section-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 700px;
-    margin-bottom: 3rem;
-    font-weight: 300;
-  }
-  .days-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-  .day-card {
-    background: white;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 4px 30px var(--shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0,0,0,0.05);
-  }
-  .day-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 50px rgba(26, 26, 26, 0.12);
-  }
-  .day-header {
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--charcoal) 0%, #2D2D2D 100%);
-    color: white;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-  }
+  .section-overline { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.4em; color: var(--sunset-orange); font-size: 0.95rem; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1; margin-bottom: 1rem; color: var(--charcoal); }
+  .section-title em { font-style: italic; font-weight: 400; color: var(--pacific-blue); }
+  .section-subtitle { font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 3rem; font-weight: 300; }
+  .route-map-section { background: linear-gradient(135deg, #006E90, #00337C); padding: 5rem 0; color: white; }
+  .route-map-section .section-overline { color: var(--sunset-pink); }
+  .route-map-section .section-title { color: white; }
+  .route-map-section .section-title em { color: var(--sand); }
+  .route-map-section .section-subtitle { color: rgba(255,255,255,0.8); }
+  .map-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .map-legend-item { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 1rem; border-radius: 12px; font-size: 0.9rem; }
+  .map-legend-item strong { color: var(--sand); display: block; margin-bottom: 0.3rem; }
+  .map-open-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--sunset-orange); color: white; padding: 1rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 1.05rem; margin-top: 2rem; box-shadow: 0 6px 20px rgba(255,107,53,0.4); transition: all 0.3s; }
+  .map-open-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,53,0.6); }
+  .accommodations-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .accom-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2rem; }
+  .accom-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .accom-card .when { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; color: var(--sand); margin-bottom: 1rem; font-size: 0.9rem; }
+  .accom-card p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+  .accom-card .links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .accom-card .link-btn { display: inline-flex; align-items: center; gap: 0.4rem; color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 0.5rem 1rem; background: rgba(255,107,53,0.3); border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; }
+  .accom-card .link-btn:hover { background: var(--sunset-orange); }
+  .days-grid { display: grid; gap: 1.5rem; }
+  .day-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 30px var(--shadow); transition: all 0.4s; border: 1px solid rgba(0,0,0,0.05); }
+  .day-card:hover { transform: translateY(-4px); box-shadow: 0 12px 50px rgba(26,26,26,0.12); }
+  .day-header { padding: 2rem; color: white; cursor: pointer; user-select: none; }
   .day-header.day-1 { background: linear-gradient(135deg, #FF6B35, #F7B2BD); }
   .day-header.day-2 { background: linear-gradient(135deg, #006E90, #F7B2BD); }
   .day-header.day-3 { background: linear-gradient(135deg, #1A4D7C, #FFB627); }
@@ -208,288 +81,73 @@
   .day-header.day-7 { background: linear-gradient(135deg, #1A1A1A, #006E90); }
   .day-header.day-8 { background: linear-gradient(135deg, #00337C, #FF6B35); }
   .day-header.day-9 { background: linear-gradient(135deg, #4A90E2, #F7B2BD); }
-  .day-header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+  .day-header-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .day-number-wrapper { display: flex; align-items: center; gap: 1.5rem; }
-  .day-number {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 900;
-    line-height: 1;
-    opacity: 0.9;
-  }
-  .day-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-  }
-  .day-date {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    font-size: 1rem;
-    opacity: 0.85;
-  }
+  .day-number { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1; opacity: 0.9; }
+  .day-info h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.3rem; }
+  .day-date { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; font-size: 1rem; opacity: 0.85; }
   .day-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .day-tag {
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    padding: 0.4rem 1rem;
-    border-radius: 100px;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-  .expand-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-    flex-shrink: 0;
-  }
+  .day-tag { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500; }
+  .expand-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; flex-shrink: 0; }
   .day-card.open .expand-icon { transform: rotate(180deg); }
-  .day-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .day-card.open .day-body { max-height: 3500px; }
+  .day-body { max-height: 0; overflow: hidden; transition: max-height 0.6s; }
+  .day-card.open .day-body { max-height: 6000px; }
   .day-content { padding: 2.5rem; }
+  .day-map-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #006E90, #1A4D7C); color: white; padding: 0.9rem 1.6rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; margin-bottom: 2rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 110, 144, 0.3); }
+  .day-map-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 110, 144, 0.5); }
   .schedule { margin-bottom: 2rem; }
-  .schedule-item {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1.5rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px dashed rgba(0,0,0,0.08);
-    align-items: start;
-  }
+  .schedule-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px dashed rgba(0,0,0,0.08); align-items: start; }
   .schedule-item:last-child { border-bottom: none; }
-  .schedule-time {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.1em;
-    color: var(--sunset-orange);
-    font-size: 1rem;
-    padding-top: 2px;
-  }
+  .schedule-time { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; color: var(--sunset-orange); font-size: 1rem; padding-top: 2px; }
   .activity-main { font-weight: 600; margin-bottom: 0.3rem; }
   .activity-detail { color: #666; font-size: 0.92rem; font-weight: 300; }
-  .highlight {
-    background: linear-gradient(120deg, transparent 50%, var(--sand) 50%);
-    background-size: 100% 100%;
-    padding: 0 4px;
-  }
-  .tips-box {
-    background: var(--sand);
-    border-left: 4px solid var(--sunset-orange);
-    padding: 1.5rem 2rem;
-    margin-top: 2rem;
-    border-radius: 0 12px 12px 0;
-  }
-  .tips-box h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    color: var(--sunset-orange);
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-  }
+  .highlight { background: linear-gradient(120deg, transparent 50%, var(--sand) 50%); background-size: 100% 100%; padding: 0 4px; }
+  .place-link { display: inline-flex; align-items: center; gap: 4px; color: var(--pacific-blue); text-decoration: none; font-weight: 600; font-size: 0.82rem; margin-left: 8px; padding: 3px 10px; background: rgba(0, 110, 144, 0.1); border-radius: 100px; transition: all 0.2s; white-space: nowrap; }
+  .place-link:hover { background: var(--pacific-blue); color: white; transform: translateY(-1px); }
+  .tips-box { background: var(--sand); border-left: 4px solid var(--sunset-orange); padding: 1.5rem 2rem; margin-top: 2rem; border-radius: 0 12px 12px 0; }
+  .tips-box h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; color: var(--sunset-orange); margin-bottom: 0.8rem; font-size: 1rem; }
   .tips-box ul { list-style: none; padding-left: 0; }
-  .tips-box li {
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .tips-box li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--sunset-orange);
-    font-weight: bold;
-  }
-  .featured-section {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 6rem 0;
-    margin: 6rem 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .featured-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
-    pointer-events: none;
-  }
+  .tips-box li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .tips-box li::before { content: '→'; position: absolute; left: 0; color: var(--sunset-orange); font-weight: bold; }
+  .featured-section { background: var(--charcoal); color: var(--cream); padding: 6rem 0; margin: 6rem 0; position: relative; overflow: hidden; }
+  .featured-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%); pointer-events: none; }
   .featured-section .section-title { color: var(--cream); }
   .featured-section .section-title em { color: var(--sunset-orange); }
-  .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .event-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s;
-  }
-  .event-card:hover {
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-4px);
-  }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .event-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; transition: all 0.3s; }
+  .event-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
   .event-emoji { font-size: 3rem; margin-bottom: 1rem; }
-  .event-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  .event-when {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    color: var(--sunset-orange);
-    margin-bottom: 1rem;
-  }
-  .event-where { color: rgba(255,255,255,0.7); font-weight: 300; }
-  .food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .food-card {
-    background: white;
-    border-radius: 16px;
-    padding: 1.8rem;
-    box-shadow: 0 4px 20px var(--shadow);
-    transition: all 0.3s;
-    border-top: 4px solid var(--sunset-orange);
-  }
-  .food-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-  }
+  .event-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .event-when { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; color: var(--sunset-orange); margin-bottom: 1rem; }
+  .event-where { color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 1rem; }
+  .event-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sunset-orange); text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 0.5rem 1rem; background: rgba(255, 107, 53, 0.15); border-radius: 100px; margin-top: 0.5rem; }
+  .event-link:hover { background: var(--sunset-orange); color: white; }
+  .food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .food-card { background: white; border-radius: 16px; padding: 1.8rem; box-shadow: 0 4px 20px var(--shadow); transition: all 0.3s; border-top: 4px solid var(--sunset-orange); display: flex; flex-direction: column; }
+  .food-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
   .food-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
-  .food-card h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--charcoal);
-  }
-  .food-rating {
-    color: var(--gold);
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-  .food-desc {
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 300;
-    line-height: 1.5;
-  }
-  .practical-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .practical-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px var(--shadow);
-  }
-  .practical-card h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    color: var(--pacific-blue);
-    margin-bottom: 1rem;
-  }
+  .food-card h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--charcoal); }
+  .food-rating { color: var(--gold); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .food-desc { color: #666; font-size: 0.9rem; font-weight: 300; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
+  .food-map-btn { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--pacific-blue); text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 0.5rem 1rem; background: rgba(0, 110, 144, 0.08); border-radius: 100px; transition: all 0.3s; align-self: flex-start; }
+  .food-map-btn:hover { background: var(--pacific-blue); color: white; }
+  .practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .practical-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px var(--shadow); }
+  .practical-card h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.2em; color: var(--pacific-blue); margin-bottom: 1rem; }
   .practical-card ul { list-style: none; }
-  .practical-card li {
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    font-size: 0.95rem;
-  }
+  .practical-card li { padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; }
   .practical-card li:last-child { border-bottom: none; }
-  .reservas-section {
-    background: linear-gradient(135deg, #FFE5D9 0%, #FFD7BA 100%);
-    padding: 4rem 0;
-    margin-top: 4rem;
-  }
+  .reservas-section { background: linear-gradient(135deg, #FFE5D9 0%, #FFD7BA 100%); padding: 4rem 0; margin-top: 4rem; }
   .reservas-list { display: grid; gap: 1rem; margin-top: 2rem; }
-  .reserva-item {
-    background: white;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  }
-  .reserva-info strong {
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
+  .reserva-item { background: white; padding: 1.5rem 2rem; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  .reserva-info strong { display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
   .reserva-info span { color: #666; font-size: 0.9rem; }
-  .reserva-link {
-    background: var(--sunset-orange);
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    white-space: nowrap;
-  }
-  .reserva-link:hover {
-    background: var(--charcoal);
-    transform: translateY(-2px);
-  }
-  footer {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 4rem 0 2rem;
-    text-align: center;
-  }
-  footer h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  footer p {
-    opacity: 0.7;
-    font-weight: 300;
-    max-width: 500px;
-    margin: 0 auto 2rem;
-  }
-  .footer-meta {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 2rem;
-    margin-top: 2rem;
-    font-size: 0.85rem;
-    opacity: 0.5;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.3em;
-  }
+  .reserva-link { background: var(--sunset-orange); color: white; padding: 0.6rem 1.5rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; white-space: nowrap; }
+  .reserva-link:hover { background: var(--charcoal); transform: translateY(-2px); }
+  footer { background: var(--charcoal); color: var(--cream); padding: 4rem 0 2rem; text-align: center; }
+  footer h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+  footer p { opacity: 0.7; font-weight: 300; max-width: 500px; margin: 0 auto 2rem; }
+  .footer-meta { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem; font-size: 0.85rem; opacity: 0.5; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.3em; }
   @media (max-width: 768px) {
     .schedule-item { grid-template-columns: 80px 1fr; gap: 1rem; }
     .schedule-time { font-size: 0.85rem; }
@@ -497,6 +155,7 @@
     .day-header { padding: 1.5rem; }
     .section { padding: 4rem 0 2rem; }
     .reserva-item { flex-direction: column; align-items: flex-start; }
+    .place-link { display: inline-block; margin-left: 0; margin-top: 4px; }
   }
 </style>
 </head>
@@ -521,10 +180,59 @@
 <section class="info-bar">
   <div class="container">
     <div class="info-grid">
-      <div class="info-card"><h3>San Diego</h3><p><strong>Sea Harbor Hotel</strong><br>Point Loma · 2 noches</p></div>
-      <div class="info-card"><h3>Los Angeles</h3><p><strong>Airbnb Casa FIFA</strong><br>Gardena · 7 noches · Piscina privada</p></div>
-      <div class="info-card"><h3>NFL · Domingo 13</h3><p><strong>Chargers vs Cardinals</strong><br>SoFi Stadium · 1:25 PM</p></div>
-      <div class="info-card"><h3>MLB · Viernes 18</h3><p><strong>Dodgers vs Giants</strong><br>Dodger Stadium · 10:10 PM</p></div>
+      <div class="info-card">
+        <h3>San Diego</h3>
+        <p><strong>Hampton Inn Downtown</strong><br>1531 Pacific Hwy · 2 noches<br>3.9⭐ · 2,092 reseñas</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7Qbyn61U2YARRTf5QsR_ag0" target="_blank" class="map-link">📍 Ver en Maps</a>
+      </div>
+      <div class="info-card">
+        <h3>Los Angeles</h3>
+        <p><strong>Airbnb Casa FIFA</strong><br>Gardena · 7 noches · Piscina<br>4.95⭐ · 3 rec · 2 baños</p>
+        <a href="https://www.airbnb.mx/rooms/1385702523498049403" target="_blank" class="map-link">🏡 Ver Airbnb</a>
+      </div>
+      <div class="info-card">
+        <h3>NFL · Domingo 13</h3>
+        <p><strong>Chargers vs Cardinals</strong><br>SoFi Stadium · 1:25 PM</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJT4_7y4a3woARcEGeJLecuV8" target="_blank" class="map-link">📍 SoFi</a>
+      </div>
+      <div class="info-card">
+        <h3>MLB · Viernes 18</h3>
+        <p><strong>Dodgers vs Giants</strong><br>Dodger Stadium · 10:10 PM</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJdVYAVPnGwoAR3wmcg09VlJ4" target="_blank" class="map-link">📍 Dodger Stadium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPEDAJE DESTACADO -->
+<section class="route-map-section">
+  <div class="container">
+    <div class="section-overline">Hospedaje</div>
+    <h2 class="section-title">Donde <em>dormimos</em>.</h2>
+    <p class="section-subtitle">Hotel en San Diego Downtown + Airbnb con piscina privada en Gardena LA.</p>
+
+    <div class="accommodations-cards">
+      <div class="accom-card">
+        <h3>🏨 Hampton Inn SD Downtown</h3>
+        <div class="when">VIE 11 + SÁB 12 SEPT</div>
+        <p>1531 Pacific Hwy, San Diego CA 92101 · Cerca de Little Italy, Embarcadero, Balboa Park y SD Zoo · Walkable a Seaport Village + Gaslamp · Desayuno gratis incluido</p>
+        <p style="font-size: 0.85rem; opacity: 0.7;">⭐ 3.9 · 2,092 reseñas · 📞 +1 619-233-8408</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7Qbyn61U2YARRTf5QsR_ag0" target="_blank" class="link-btn">📍 Google Maps</a>
+          <a href="https://www.hilton.com/en/hotels/sancrhx-hampton-san-diego-downtown" target="_blank" class="link-btn">🏨 Web Hampton</a>
+        </div>
+      </div>
+
+      <div class="accom-card">
+        <h3>🏡 Airbnb Casa FIFA con piscina</h3>
+        <div class="when">SÁB 12 — SÁB 19 SEPT · 7 noches</div>
+        <p>Gardena, CA · Casa entera · 3 recámaras · 2 baños · Piscina privada · Estacionamiento gratis · 7 huéspedes · Anfitrión: Tam</p>
+        <p style="font-size: 0.85rem; opacity: 0.7;">⭐ 4.95 · 20 reseñas</p>
+        <div class="links">
+          <a href="https://www.airbnb.mx/rooms/1385702523498049403" target="_blank" class="link-btn">🏡 Ver en Airbnb</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Gardena+CA+90247" target="_blank" class="link-btn">📍 Ver zona</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -533,19 +241,17 @@
   <div class="container">
     <div class="section-overline">Itinerario Día a Día</div>
     <h2 class="section-title">El <em>plan</em>.</h2>
-    <p class="section-subtitle">Nueve días entre el océano Pacífico, los museos icónicos, los estadios mundialmente famosos, y los viñedos de Malibú. Click en cada día para ver los detalles.</p>
+    <p class="section-subtitle">Click en cada lugar para abrir la ficha en Google Maps con fotos, reseñas y horarios. El botón azul de cada día abre la ruta completa.</p>
 
     <div class="days-grid">
 
+      <!-- DÍA 1 -->
       <article class="day-card">
         <div class="day-header day-1" onclick="toggleDay(this)">
           <div class="day-header-content">
             <div class="day-number-wrapper">
               <div class="day-number">01</div>
-              <div class="day-info">
-                <h3>Llegada a San Diego</h3>
-                <div class="day-date">Viernes 11 Sept · Point Loma</div>
-              </div>
+              <div class="day-info"><h3>Llegada a San Diego</h3><div class="day-date">Viernes 11 Sept · Downtown</div></div>
             </div>
             <div class="day-tags"><span class="day-tag">🌅 Atardecer</span><span class="day-tag">🍤 Mariscos</span></div>
             <div class="expand-icon">▼</div>
@@ -553,20 +259,70 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/San+Diego+International+Airport/Hampton+Inn+San+Diego+Downtown/Sunset+Cliffs+Natural+Park/Point+Loma+Seafoods/Bali+Hai+Restaurant" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
-              <div class="schedule-item"><div class="schedule-time">Tarde</div><div><div class="activity-main">✈️ Llegada aeropuerto SAN</div><div class="activity-detail">Recoger carro de renta + check-in Sea Harbor Hotel</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🌅 Sunset Cliffs Natural Park</div><div class="activity-detail">Atardecer cinematográfico · 10 min del hotel</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍤 Cena: Point Loma Seafoods</span></div><div class="activity-detail">Mariscos frescos · clam chowder · fish & chips · $$</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:00 PM</div><div><div class="activity-main">🍹 Bali Hai Restaurant</div><div class="activity-detail">Tiki drinks con vista a la bahía</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">Tarde</div>
+                <div>
+                  <div class="activity-main">✈️ Aeropuerto SAN
+                    <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+International+Airport" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Recoger carro de renta + check-in Hampton Inn Downtown
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7Qbyn61U2YARRTf5QsR_ag0" target="_blank" class="place-link">📍 Hotel</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">4:30 PM</div>
+                <div>
+                  <div class="activity-main">🌆 Caminar por Little Italy (cerca del hotel)
+                    <a href="https://www.google.com/maps/search/?api=1&query=Little+Italy+San+Diego" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Restaurantes, tiendas, mercado los sábados</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">5:30 PM</div>
+                <div>
+                  <div class="activity-main">🌅 Sunset Cliffs Natural Park
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sunset+Cliffs+Natural+Park" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Atardecer cinematográfico · 15 min en carro desde el hotel</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍤 Cena: Point Loma Seafoods</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Point+Loma+Seafoods" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Mariscos frescos · clam chowder · fish & chips · $$</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">9:00 PM</div>
+                <div>
+                  <div class="activity-main">🍹 Bali Hai Restaurant
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bali+Hai+Restaurant+San+Diego" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Tiki drinks con vista a la bahía · 12 min del hotel</div>
+                </div>
+              </div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Atardecer en sept cae ~6:50 PM, llega 30 min antes</li><li>Llena tanque cerca del hotel para mañana</li></ul>
+              <ul>
+                <li>Atardecer en sept cae ~6:50 PM, llega 30 min antes</li>
+                <li>Hampton Inn está al lado del trolley · zona walkable</li>
+                <li>Pide cuarto al FRENTE (Pacific Hwy) para menos ruido del trolley</li>
+                <li>Desayuno gratis en hotel · aprovechar</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 2 -->
       <article class="day-card">
         <div class="day-header day-2" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -580,27 +336,99 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Hampton+Inn+San+Diego+Downtown/Mount+Soledad/La+Jolla+Cove/Torrey+Pines+State+Beach/Laguna+Beach/Vons+Gardena/Gardena+CA" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
-              <div class="schedule-item"><div class="schedule-time">8:30 AM</div><div><div class="activity-main">☕ Desayuno + check-out hotel</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">🔭 Mount Soledad</div><div class="activity-detail">Mirador 360° SD · Gratis</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🦭 La Jolla Cove</div><div class="activity-detail">Leones marinos + Coast Walk</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🌊 Children's Pool + 🐚 Tide Pools</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">12:45 PM</div><div><div class="activity-main"><span class="highlight">🍳 Almuerzo: Cove House</span></div><div class="activity-detail">Eggs Benedict gourmet vista mar · 4.6⭐ · $$</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">🏖️ Torrey Pines State Beach</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:30 AM</div><div><div class="activity-main">☕ Desayuno GRATIS en Hampton + check-out</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">9:30 AM</div>
+                <div>
+                  <div class="activity-main">🔭 Mount Soledad
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mount+Soledad+San+Diego" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Mirador 360° SD · Gratis</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">10:00 AM</div>
+                <div>
+                  <div class="activity-main">🦭 La Jolla Cove
+                    <a href="https://www.google.com/maps/search/?api=1&query=La+Jolla+Cove" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Leones marinos + Coast Walk</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">11:00 AM</div>
+                <div>
+                  <div class="activity-main">🌊 Children's Pool
+                    <a href="https://www.google.com/maps/search/?api=1&query=Childrens+Pool+La+Jolla" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">+ 🐚 Tide Pools
+                    <a href="https://www.google.com/maps/search/?api=1&query=La+Jolla+Tide+Pools" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">12:45 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍳 Almuerzo: Cove House</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cove+House+Restaurant+La+Jolla" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Eggs Benedict gourmet vista mar · 4.6⭐ · $$</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">2:30 PM</div>
+                <div>
+                  <div class="activity-main">🏖️ Torrey Pines State Beach
+                    <a href="https://www.google.com/maps/search/?api=1&query=Torrey+Pines+State+Beach" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">3:30 PM</div><div><div class="activity-main">🚗 Salida hacia LA por I-5</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🏝️ Parada Laguna Beach</div><div class="activity-detail">Crescent Bay Point · 1 hora</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:45 PM</div><div><div class="activity-main"><span class="highlight">🛒 Parada VONS Gardena</span></div><div class="activity-detail">Abastecer despensa Airbnb · 30 min</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main">🏡 Check-in Airbnb Gardena</div><div class="activity-detail">Casa con piscina privada</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">5:30 PM</div>
+                <div>
+                  <div class="activity-main">🏝️ Parada Laguna Beach
+                    <a href="https://www.google.com/maps/search/?api=1&query=Crescent+Bay+Point+Park+Laguna+Beach" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Crescent Bay Point · 1 hora</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:45 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🛒 Parada VONS Gardena</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Vons+Redondo+Beach+Blvd+Gardena" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Abastecer despensa Airbnb · 30 min</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">8:30 PM</div>
+                <div>
+                  <div class="activity-main">🏡 Check-in Airbnb Gardena
+                    <a href="https://www.airbnb.mx/rooms/1385702523498049403" target="_blank" class="place-link">🏡 Airbnb</a>
+                  </div>
+                  <div class="activity-detail">Casa FIFA con piscina privada · 3 recámaras · 2 baños</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🍕 Cena ligera en casa</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Descarga Tides Near Me para Tide Pools</li><li>Lleva zapatos de agua</li><li>Lista compras: huevos, café, fruta, agua, cerveza, snacks</li></ul>
+              <ul>
+                <li>Descarga Tides Near Me para Tide Pools</li>
+                <li>Lleva zapatos de agua</li>
+                <li>Lista compras: huevos, café, fruta, agua, cerveza, snacks, carne para asar</li>
+                <li>Anfitrión Tam te manda código del Airbnb el mismo día</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 3 -->
       <article class="day-card">
         <div class="day-header day-3" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -614,26 +442,63 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Gardena+CA/SoFi+Stadium/Manhattan+Beach+Pier/JOEY+Manhattan+Beach" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">9:00 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
               <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🏊 Piscina del Airbnb</div></div></div>
               <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🚗 Salir hacia SoFi (15-20 min)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">12:00 PM</div><div><div class="activity-main">🅿️ Parking SoFi ($50 reservado)</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">12:00 PM</div>
+                <div>
+                  <div class="activity-main">🅿️ Parking SoFi
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJT4_7y4a3woARcEGeJLecuV8" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">$50 reservado</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main">🎉 Tailgate + estadio</div><div class="activity-detail">Nachos, hot dogs, garlic fries</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:25 PM</div><div><div class="activity-main"><span class="highlight">🏈 CHARGERS vs CARDINALS</span></div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">1:25 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🏈 CHARGERS vs CARDINALS</span>
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJT4_7y4a3woARcEGeJLecuV8" target="_blank" class="place-link">📍 SoFi</a>
+                  </div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🚗 Bajar a Manhattan Beach</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🌊 Manhattan Beach Pier + atardecer</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Cena: JOEY Manhattan Beach</span></div><div class="activity-detail">Steakhouse moderno · pasta lobster · 4.8⭐ · $$</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">6:00 PM</div>
+                <div>
+                  <div class="activity-main">🌊 Manhattan Beach Pier
+                    <a href="https://www.google.com/maps/search/?api=1&query=Manhattan+Beach+Pier" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Atardecer</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍔 Cena: JOEY Manhattan Beach</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=JOEY+Manhattan+Beach" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Steakhouse moderno · pasta lobster · 4.8⭐ · $$</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🏡 Regreso al Airbnb · jacuzzi</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>SoFi es cashless: usa tarjeta o app</li><li>Bolsa transparente o pequeña (regla NFL)</li><li>Bloqueador SPF 50+</li></ul>
+              <ul>
+                <li>SoFi es cashless: usa tarjeta o app</li>
+                <li>Bolsa transparente o pequeña (regla NFL)</li>
+                <li>Bloqueador SPF 50+</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 4 -->
       <article class="day-card">
         <div class="day-header day-4" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -647,27 +512,79 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Hollywood+Walk+of+Fame/Pinks+Hot+Dogs+Hollywood/TCL+Chinese+Theatre/Dolby+Theatre/Lake+Hollywood+Park/The+Grove+Los+Angeles" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
               <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🚗 Salir hacia Hollywood (35-40 min)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">⭐ Hollywood Walk of Fame</div><div class="activity-detail">Estrellas + Chinese Theatre</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main">🛍️ Hollywood & Highland Center</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main"><span class="highlight">🌭 Almuerzo: Pink's Hot Dogs</span></div><div class="activity-detail">ÍCONO desde 1939 · 4.5⭐ · 13,646 reseñas · $6-12</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">📸 TCL Chinese Theatre</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🎤 Dolby Theatre (Oscars)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">📸 Lake Hollywood Park</div><div class="activity-detail">Foto del letrero sin caminar</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">11:30 AM</div>
+                <div>
+                  <div class="activity-main">⭐ Hollywood Walk of Fame
+                    <a href="https://www.google.com/maps/search/?api=1&query=Hollywood+Walk+of+Fame" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Estrellas + Chinese Theatre</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">1:00 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🌭 Almuerzo: Pink's Hot Dogs</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pinks+Hot+Dogs+Hollywood" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">ÍCONO desde 1939 · 4.5⭐ · 13,646 reseñas · $6-12</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">2:30 PM</div>
+                <div>
+                  <div class="activity-main">📸 TCL Chinese Theatre
+                    <a href="https://www.google.com/maps/search/?api=1&query=TCL+Chinese+Theatre" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">3:00 PM</div>
+                <div>
+                  <div class="activity-main">🎤 Dolby Theatre (Oscars)
+                    <a href="https://www.google.com/maps/search/?api=1&query=Dolby+Theatre+Hollywood" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">4:00 PM</div>
+                <div>
+                  <div class="activity-main">📸 Lake Hollywood Park
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lake+Hollywood+Park" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Foto del letrero sin caminar</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">6:30 PM</div><div><div class="activity-main">🌅 Atardecer Hollywood Hills</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Cena: The Grove / Farmers Market Fairfax</span></div><div class="activity-detail">Mercado histórico 1934 · variedad · $-$$</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍔 Cena: The Grove / Farmers Market</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Original+Farmers+Market+Fairfax" target="_blank" class="place-link">📍 Farmers Market</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=The+Grove+Los+Angeles" target="_blank" class="place-link">📍 The Grove</a>
+                  </div>
+                  <div class="activity-detail">Mercado histórico 1934 · variedad · $-$$</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Cuidado con scammers disfrazados de personajes</li><li>Pink's tiene fila larga: paciencia, vale la pena</li><li>Griffith cierra lunes → mañana martes lo vemos</li></ul>
+              <ul>
+                <li>Cuidado con scammers disfrazados de personajes</li>
+                <li>Pink's tiene fila larga: paciencia, vale la pena</li>
+                <li>Griffith cierra lunes → mañana martes lo vemos</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 5 -->
       <article class="day-card">
         <div class="day-header day-5" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -681,25 +598,78 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Rodeo+Drive/The+Getty+Center/Original+Farmers+Market+Fairfax/LACMA/Griffith+Observatory/Bottega+Louie" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">8:30 AM</div><div><div class="activity-main">☕ Desayuno + salida</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main">💎 Rodeo Drive / Beverly Hills</div><div class="activity-detail">Foto cartel · tiendas de lujo</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🖼️ The Getty Center</div><div class="activity-detail">GRATIS · arquitectura blanca + jardines · Parking $25</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:30 PM</div><div><div class="activity-main"><span class="highlight">🥪 Almuerzo: Original Farmers Market Fairfax</span></div><div class="activity-detail">Mercado 1934 · 100+ puestos · $-$$</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🎨 LACMA + Urban Light</div><div class="activity-detail">Las 202 lámparas vintage · Picasso, Magritte · $25</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">5:30 PM</div><div><div class="activity-main">🔭 Griffith Observatory</div><div class="activity-detail">GRATIS · abierto 12 PM-10 PM martes</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">6:50 PM</div><div><div class="activity-main"><span class="highlight">🌅 ATARDECER en Griffith</span></div><div class="activity-detail">El mejor atardecer de LA · vista al Hollywood Sign</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main"><span class="highlight">🍝 Cena: Bottega Louie (Downtown)</span></div><div class="activity-detail">Italiano premium · pasta + macarons coloridos · $$</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">9:30 AM</div>
+                <div>
+                  <div class="activity-main">💎 Rodeo Drive
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rodeo+Drive+Beverly+Hills" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">11:00 AM</div>
+                <div>
+                  <div class="activity-main">🖼️ The Getty Center
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJbzYnQte8woARJaqqFVpKeNo" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">GRATIS · arquitectura blanca + jardines · Parking $25</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">1:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🥪 Almuerzo: Farmers Market Fairfax</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Original+Farmers+Market+Fairfax" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Mercado 1934 · 100+ puestos · $-$$</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">3:00 PM</div>
+                <div>
+                  <div class="activity-main">🎨 LACMA + Urban Light
+                    <a href="https://www.google.com/maps/search/?api=1&query=LACMA+Los+Angeles" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Las 202 lámparas vintage · Picasso, Magritte · $25</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">5:30 PM</div>
+                <div>
+                  <div class="activity-main">🔭 Griffith Observatory
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJywjU6WG_woAR3NrWwrEH_3M" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">GRATIS · abierto 12 PM-10 PM martes</div>
+                </div>
+              </div>
+              <div class="schedule-item"><div class="schedule-time">6:50 PM</div><div><div class="activity-main"><span class="highlight">🌅 ATARDECER en Griffith</span></div><div class="activity-detail">El mejor atardecer de LA</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">8:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍝 Cena: Bottega Louie</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bottega+Louie+Downtown+Los+Angeles" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Italiano premium · pasta + macarons coloridos · $$</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">10:30 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Reserva The Broad Museum AHORA para mañana</li><li>Parking Griffith llena después de 4 PM</li><li>The Getty tiene tram gratis para subir</li></ul>
+              <ul>
+                <li>Reserva The Broad Museum AHORA para mañana jueves</li>
+                <li>Parking Griffith llena después de 4 PM</li>
+                <li>The Getty tiene tram gratis para subir</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 6 -->
       <article class="day-card">
         <div class="day-header day-6" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -713,31 +683,83 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Malibu+Wine+Tours+Saddle+Rock+Ranch/Malibu+Farm+Pier+Cafe/El+Matador+Beach/Zuma+Beach/Point+Dume/Malibu+Pier/Reel+Inn+Malibu" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">8:00 AM</div><div><div class="activity-main">☕ Desayuno temprano + salir</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:15 AM</div><div><div class="activity-main">🚗 Llegar a Saddle Rock Ranch</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:30 AM</div><div><div class="activity-main"><span class="highlight">🍷 MALIBU WINE TOUR VW Bus / 4x4</span></div><div class="activity-detail">SIN HIKE · 2h · animales (llamas, ovejas) · 4 wine tastings · $65-85 · RESERVAR</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">12:30 PM</div><div><div class="activity-main"><span class="highlight">🦞 Almuerzo: Malibu Farm Pier</span></div><div class="activity-detail">Brunch en el pier · vista al océano · $$</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">2:00 PM</div><div><div class="activity-main">🪨 El Matador Beach</div><div class="activity-detail">Cuevas playeras épicas · 150 escalones</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">🌊 Zuma Beach + Point Dume</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">6:30 PM</div><div><div class="activity-main">🌅 Atardecer en Malibu Pier</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🦪 Cena: Reel Inn Malibu</span></div><div class="activity-detail">Seafood shack icónico · ostiones + fish & chips · $15-25</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">9:30 AM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍷 Malibu Wine Tour VW Bus / 4x4</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Malibu+Wine+Tours+Saddle+Rock+Ranch" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">SIN HIKE · 2h · animales + 4 wine tastings · $65-85</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">12:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🦞 Almuerzo: Malibu Farm Pier</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Malibu+Farm+Pier+Cafe" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Brunch en el pier · vista al océano · $$</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">2:00 PM</div>
+                <div>
+                  <div class="activity-main">🪨 El Matador Beach
+                    <a href="https://www.google.com/maps/search/?api=1&query=El+Matador+State+Beach+Malibu" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Cuevas playeras épicas · 150 escalones</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">4:00 PM</div>
+                <div>
+                  <div class="activity-main">🌊 Zuma Beach + Point Dume
+                    <a href="https://www.google.com/maps/search/?api=1&query=Zuma+Beach+Malibu" target="_blank" class="place-link">📍 Zuma</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Point+Dume+Malibu" target="_blank" class="place-link">📍 Point Dume</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">6:30 PM</div>
+                <div>
+                  <div class="activity-main">🌅 Atardecer Malibu Pier
+                    <a href="https://www.google.com/maps/search/?api=1&query=Malibu+Pier" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🦪 Cena: Reel Inn Malibu</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Reel+Inn+Malibu" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Seafood shack icónico · $15-25</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">9:30 PM</div><div><div class="activity-main">🚗 Regreso Gardena (1h)</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Reservar Wine Tour ANTES en malibuwinehikes.com/tours</li><li>Especifica VW Bus o 4x4 (NO el hike)</li><li>Edad mínima Wine Tour: 21 años</li><li>Zapatos cómodos para El Matador</li></ul>
+              <ul>
+                <li>Reservar Wine Tour en malibuwinehikes.com/tours</li>
+                <li>Especifica VW Bus o 4x4 (NO el hike)</li>
+                <li>Edad mínima: 21 años</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 7 -->
       <article class="day-card">
         <div class="day-header day-7" onclick="toggleDay(this)">
           <div class="day-header-content">
             <div class="day-number-wrapper">
               <div class="day-number">07</div>
-              <div class="day-info"><h3>Citadel + DTLA</h3><div class="day-date">Jueves 17 Sept · Outlets + Cultura</div></div>
+              <div class="day-info"><h3>Citadel + DTLA</h3><div class="day-date">Jueves 17 Sept</div></div>
             </div>
             <div class="day-tags"><span class="day-tag">🛍️ Outlet</span><span class="day-tag">🏛️ The Broad</span><span class="day-tag">🛒 Grand Central</span></div>
             <div class="expand-icon">▼</div>
@@ -745,26 +767,88 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Citadel+Outlets/Grand+Central+Market+Los+Angeles/Olvera+Street/The+Broad+Museum/Walt+Disney+Concert+Hall/Arts+District+Los+Angeles" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">9:00 AM</div><div><div class="activity-main">☕ Desayuno en Airbnb</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🚗 Salir hacia Citadel Outlets (25 min)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">🛍️ Citadel Outlets (2.5h)</div><div class="activity-detail">Coach, Nike, Levi's, Hugo Boss · 4.5⭐ · 31,871 reseñas</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main"><span class="highlight">🍳 Almuerzo: GRAND CENTRAL MARKET</span></div><div class="activity-detail">ÍCONO desde 1917 · 4.5⭐ · Eggslut, Wexler's Deli, Olio Pizza, Broad Street Oysters</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div><div class="activity-main">🇲🇽 Olvera Street + Union Station</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">3:30 PM</div><div><div class="activity-main">🏛️ The Broad Museum</div><div class="activity-detail">GRATIS con reserva · Infinity Mirror Room</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">5:00 PM</div><div><div class="activity-main">🎭 Walt Disney Concert Hall</div><div class="activity-detail">Exterior Frank Gehry · foto</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🎨 Arts District</div><div class="activity-detail">Murales + breweries</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main"><span class="highlight">🍽️ Cena: Bestia (Arts District)</span></div><div class="activity-detail">Italiano moderno top LA · $$$ · RESERVAR OpenTable</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">10:30 AM</div>
+                <div>
+                  <div class="activity-main">🛍️ Citadel Outlets
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJ2SQLNgvPwoARJOGrGJ374e4" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Coach, Nike, Levi's · 4.5⭐ · 31,871 reseñas · 2.5h</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">1:00 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍳 Almuerzo: Grand Central Market</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Grand+Central+Market+Los+Angeles" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">ÍCONO desde 1917 · 4.5⭐ · Eggslut, Wexler's Deli, Olio Pizza</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">2:30 PM</div>
+                <div>
+                  <div class="activity-main">🇲🇽 Olvera Street + Union Station
+                    <a href="https://www.google.com/maps/search/?api=1&query=Olvera+Street+Los+Angeles" target="_blank" class="place-link">📍 Olvera</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Union+Station+Los+Angeles" target="_blank" class="place-link">📍 Union</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">3:30 PM</div>
+                <div>
+                  <div class="activity-main">🏛️ The Broad Museum
+                    <a href="https://www.google.com/maps/search/?api=1&query=The+Broad+Museum+Los+Angeles" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">GRATIS con reserva · Infinity Mirror Room</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">5:00 PM</div>
+                <div>
+                  <div class="activity-main">🎭 Walt Disney Concert Hall
+                    <a href="https://www.google.com/maps/search/?api=1&query=Walt+Disney+Concert+Hall" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Exterior Frank Gehry</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">6:00 PM</div>
+                <div>
+                  <div class="activity-main">🎨 Arts District
+                    <a href="https://www.google.com/maps/search/?api=1&query=Arts+District+Los+Angeles" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Murales + breweries</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">7:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍽️ Cena: Bestia / Bavel</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bestia+Restaurant+Arts+District" target="_blank" class="place-link">📍 Bestia</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bavel+Restaurant+Arts+District+LA" target="_blank" class="place-link">📍 Bavel</a>
+                  </div>
+                  <div class="activity-detail">Italiano top · $$$ · RESERVAR OpenTable</div>
+                </div>
+              </div>
               <div class="schedule-item"><div class="schedule-time">10:00 PM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Reservar The Broad 1-2 semanas antes en thebroad.org</li><li>Pide VIP Coupon Book en Citadel</li><li>Reservar Bestia/Bavel 3-5 días antes</li><li>Tax CA: 9.5% extra</li></ul>
+              <ul>
+                <li>Reservar The Broad 1-2 semanas antes en thebroad.org</li>
+                <li>Pide VIP Coupon Book en Citadel</li>
+                <li>Reservar Bestia/Bavel 3-5 días antes</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 8 -->
       <article class="day-card">
         <div class="day-header day-8" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -778,30 +862,74 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Santa+Monica+Pier/Hinano+Cafe+Venice/Venice+Beach+Boardwalk/Abbot+Kinney+Boulevard/Dodger+Stadium" target="_blank" class="day-map-btn">🗺️ Ver ruta del día en Google Maps</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">☕ Desayuno + piscina Airbnb</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🚗 Manejar a Santa Monica (25-30 min)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">12:00 PM</div><div><div class="activity-main">🎡 Santa Monica Pier + Pacific Park</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:30 PM</div><div><div class="activity-main"><span class="highlight">🍔 Almuerzo: Hinano Cafe Venice</span></div><div class="activity-detail">CLÁSICO años 60 · cheeseburgers · jukebox + surfboards · 4.6⭐ · $8-15</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main">🛹 Venice Beach Boardwalk</div><div class="activity-detail">Skaters · Muscle Beach</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">4:00 PM</div><div><div class="activity-main">🛍️ Abbot Kinney Blvd</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">5:00 PM</div><div><div class="activity-main">🏡 Regreso Airbnb · descansar</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🥗 Cena ligera en casa</div><div class="activity-detail">Vienen los Dodger Dogs</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main">🚗 Salir hacia Dodger Stadium (35-40 min)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">8:30 PM</div><div><div class="activity-main">🅿️ Llegada estadio ($35 parking)</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">9:00 PM</div><div><div class="activity-main"><span class="highlight">🌭 DODGER DOGS + cerveza</span></div><div class="activity-detail">ÍCONO obligatorio · ~$7-10</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🚗 Santa Monica (25-30 min)</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">12:00 PM</div>
+                <div>
+                  <div class="activity-main">🎡 Santa Monica Pier
+                    <a href="https://www.google.com/maps/search/?api=1&query=Santa+Monica+Pier" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">+ Pacific Park</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">1:30 PM</div>
+                <div>
+                  <div class="activity-main"><span class="highlight">🍔 Almuerzo: Hinano Cafe Venice</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Hinano+Cafe+Venice" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">Clásico años 60 · cheeseburgers · 4.6⭐ · $8-15</div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">3:00 PM</div>
+                <div>
+                  <div class="activity-main">🛹 Venice Beach Boardwalk
+                    <a href="https://www.google.com/maps/search/?api=1&query=Venice+Beach+Boardwalk" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">4:00 PM</div>
+                <div>
+                  <div class="activity-main">🛍️ Abbot Kinney Blvd
+                    <a href="https://www.google.com/maps/search/?api=1&query=Abbot+Kinney+Boulevard+Venice" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item"><div class="schedule-time">5:00 PM</div><div><div class="activity-main">🏡 Regreso Airbnb</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">6:00 PM</div><div><div class="activity-main">🥗 Cena ligera en casa</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">7:30 PM</div><div><div class="activity-main">🚗 Salir a Dodger Stadium</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">8:30 PM</div>
+                <div>
+                  <div class="activity-main">🅿️ Dodger Stadium
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJdVYAVPnGwoAR3wmcg09VlJ4" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                  <div class="activity-detail">$35 parking</div>
+                </div>
+              </div>
+              <div class="schedule-item"><div class="schedule-time">9:00 PM</div><div><div class="activity-main"><span class="highlight">🌭 DODGER DOGS + cerveza</span></div></div></div>
               <div class="schedule-item"><div class="schedule-time">10:10 PM</div><div><div class="activity-main"><span class="highlight">⚾ DODGERS vs GIANTS</span></div></div></div>
               <div class="schedule-item"><div class="schedule-time">1:00 AM</div><div><div class="activity-main">🏁 Final partido</div></div></div>
               <div class="schedule-item"><div class="schedule-time">1:45 AM</div><div><div class="activity-main">🚗 Regreso Airbnb</div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips del día</h4>
-              <ul><li>Verifica tu boleto en MLB Ballpark app</li><li>Llega 1.5h antes para el ambiente</li><li>Chamarra ligera (noches frescas)</li><li>NO te desveles, mañana sales temprano</li></ul>
+              <ul>
+                <li>Verifica tu boleto en MLB Ballpark app</li>
+                <li>Llega 1.5h antes para el ambiente</li>
+                <li>Chamarra ligera (noches frescas)</li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- DÍA 9 -->
       <article class="day-card">
         <div class="day-header day-9" onclick="toggleDay(this)">
           <div class="day-header-content">
@@ -815,19 +943,30 @@
         </div>
         <div class="day-body">
           <div class="day-content">
+            <a href="https://www.google.com/maps/dir/Gardena+CA/San+Diego+International+Airport" target="_blank" class="day-map-btn">🗺️ Ver ruta Gardena → SAN Airport</a>
             <div class="schedule">
               <div class="schedule-item"><div class="schedule-time">7:30 AM</div><div><div class="activity-main">☕ Desayuno rápido + maletas</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">8:00 AM</div><div><div class="activity-main"><span class="highlight">🚗 CHECK-OUT + I-5 Sur</span></div><div class="activity-detail">Gardena = 5 min al on-ramp</div></div></div>
+              <div class="schedule-item"><div class="schedule-time">8:00 AM</div><div><div class="activity-main"><span class="highlight">🚗 CHECK-OUT + I-5 Sur</span></div></div></div>
               <div class="schedule-item"><div class="schedule-time">10:00 AM</div><div><div class="activity-main">🛬 Llegada a San Diego</div></div></div>
               <div class="schedule-item"><div class="schedule-time">10:30 AM</div><div><div class="activity-main">⛽ Llenar tanque</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div><div class="activity-main">🚗 Devolver carro en SAN</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🛂 Check-in vuelo + seguridad</div></div></div>
-              <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div><div class="activity-main">🍴 Almuerzo en aeropuerto</div></div></div>
+              <div class="schedule-item">
+                <div class="schedule-time">11:00 AM</div>
+                <div>
+                  <div class="activity-main">🚗 Devolver carro en SAN
+                    <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+International+Airport+Rental+Car+Center" target="_blank" class="place-link">📍 Mapa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-item"><div class="schedule-time">11:30 AM</div><div><div class="activity-main">🛂 Check-in vuelo</div></div></div>
               <div class="schedule-item"><div class="schedule-time">3:00 PM</div><div><div class="activity-main"><span class="highlight">✈️ VUELO DE REGRESO</span></div></div></div>
             </div>
             <div class="tips-box">
               <h4>Tips CRÍTICOS</h4>
-              <ul><li>Sal a las 8 AM MÁXIMO</li><li>Después de 9:30 AM = riesgo de vuelo</li><li>Sábado AM = menos tráfico</li><li>Carga maletas la noche anterior</li></ul>
+              <ul>
+                <li>Sal a las 8 AM MÁXIMO</li>
+                <li>Después de 9:30 AM = riesgo de vuelo</li>
+                <li>Sábado AM = menos tráfico</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -848,18 +987,21 @@
         <h3>Chargers vs Cardinals</h3>
         <div class="event-when">Domingo 13 · 1:25 PM</div>
         <p class="event-where">SoFi Stadium — Inglewood<br>15-20 min desde el Airbnb</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJT4_7y4a3woARcEGeJLecuV8" target="_blank" class="event-link">📍 Ver en Google Maps</a>
       </div>
       <div class="event-card">
         <div class="event-emoji">⚾</div>
         <h3>Dodgers vs Giants</h3>
         <div class="event-when">Viernes 18 · 10:10 PM</div>
         <p class="event-where">Dodger Stadium — Elysian Park<br>35-40 min desde el Airbnb</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJdVYAVPnGwoAR3wmcg09VlJ4" target="_blank" class="event-link">📍 Ver en Google Maps</a>
       </div>
       <div class="event-card">
         <div class="event-emoji">🍷</div>
         <h3>Malibu Wine Tour</h3>
         <div class="event-when">Miércoles 16 · 9:30 AM</div>
         <p class="event-where">Saddle Rock Ranch — Malibu<br>VW Bus o 4x4 · sin caminata</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Malibu+Wine+Tours+Saddle+Rock" target="_blank" class="event-link">📍 Ver en Google Maps</a>
       </div>
     </div>
   </div>
@@ -869,20 +1011,20 @@
   <div class="container">
     <div class="section-overline">Comida Icónica</div>
     <h2 class="section-title">Sabores <em>California</em>.</h2>
-    <p class="section-subtitle">Los lugares más auténticos y reconocidos · Mariscos costeros, burgers vintage, mercados históricos.</p>
+    <p class="section-subtitle">Los lugares más auténticos y reconocidos · Click para ver fotos y reseñas.</p>
     <div class="food-grid">
-      <div class="food-card"><div class="food-emoji">🌭</div><h4>Pink's Hot Dogs</h4><div class="food-rating">★ 4.5 · 13,646 reseñas</div><p class="food-desc">Hollywood, desde 1939. Hot dogs con nombres de celebridades. $6-12</p></div>
-      <div class="food-card"><div class="food-emoji">🛒</div><h4>Grand Central Market</h4><div class="food-rating">★ 4.5 · 36,650 reseñas</div><p class="food-desc">DTLA, mercado histórico 1917. Eggslut, Wexler's, Olio Pizza, ostiones.</p></div>
-      <div class="food-card"><div class="food-emoji">🍳</div><h4>Cove House</h4><div class="food-rating">★ 4.6 · 1,000 reseñas</div><p class="food-desc">La Jolla. Brunch gourmet con vista al océano · eggs benedict. $$</p></div>
-      <div class="food-card"><div class="food-emoji">🍤</div><h4>Point Loma Seafoods</h4><div class="food-rating">★ Local favorito</div><p class="food-desc">SD. Mariscos frescos · clam chowder, fish & chips, ceviche. $$</p></div>
-      <div class="food-card"><div class="food-emoji">🦞</div><h4>Malibu Farm Pier</h4><div class="food-rating">★ 4.5</div><p class="food-desc">Malibu. Brunch sobre el pier con vista al océano. $$</p></div>
-      <div class="food-card"><div class="food-emoji">🦪</div><h4>Reel Inn Malibu</h4><div class="food-rating">★ Icónico Malibu</div><p class="food-desc">Seafood shack casual · ostiones + fish & chips · vibe playero. $15-25</p></div>
-      <div class="food-card"><div class="food-emoji">🍔</div><h4>JOEY Manhattan Beach</h4><div class="food-rating">★ 4.8 · 5,030 reseñas</div><p class="food-desc">Steakhouse moderno · pasta lobster + cheesecake. $$</p></div>
-      <div class="food-card"><div class="food-emoji">🍔</div><h4>Hinano Cafe Venice</h4><div class="food-rating">★ 4.6 · 1,740 reseñas</div><p class="food-desc">Clásico vintage años 60 · cheeseburgers · jukebox. $8-15</p></div>
-      <div class="food-card"><div class="food-emoji">🍝</div><h4>Bottega Louie</h4><div class="food-rating">★ Top LA</div><p class="food-desc">Downtown. Italiano premium · pasta + macarons coloridos. $$</p></div>
-      <div class="food-card"><div class="food-emoji">🍽️</div><h4>Bestia</h4><div class="food-rating">★ 4.7 · Top 50 LA</div><p class="food-desc">Arts District. Italiano moderno · reservar con tiempo. $$$</p></div>
-      <div class="food-card"><div class="food-emoji">🥪</div><h4>Farmers Market Fairfax</h4><div class="food-rating">★ Histórico 1934</div><p class="food-desc">Mid-City. Mercado con 100+ puestos · variedad. $-$$</p></div>
-      <div class="food-card"><div class="food-emoji">🌭</div><h4>Dodger Dogs</h4><div class="food-rating">★ Obligatorio</div><p class="food-desc">Dodger Stadium. El hot dog ÍCONO del estadio. Imperdible.</p></div>
+      <div class="food-card"><div class="food-emoji">🌭</div><h4>Pink's Hot Dogs</h4><div class="food-rating">★ 4.5 · 13,646</div><p class="food-desc">Hollywood, desde 1939. Hot dogs con nombres de celebridades. $6-12</p><a href="https://www.google.com/maps/search/?api=1&query=Pinks+Hot+Dogs+Hollywood" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🛒</div><h4>Grand Central Market</h4><div class="food-rating">★ 4.5 · 36,650</div><p class="food-desc">DTLA, mercado histórico 1917. Eggslut, Wexler's, Olio Pizza.</p><a href="https://www.google.com/maps/search/?api=1&query=Grand+Central+Market+Los+Angeles" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍳</div><h4>Cove House</h4><div class="food-rating">★ 4.6</div><p class="food-desc">La Jolla. Brunch gourmet con vista al océano. $$</p><a href="https://www.google.com/maps/search/?api=1&query=Cove+House+Restaurant+La+Jolla" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍤</div><h4>Point Loma Seafoods</h4><div class="food-rating">★ Local favorito</div><p class="food-desc">SD. Mariscos frescos · clam chowder, fish & chips. $$</p><a href="https://www.google.com/maps/search/?api=1&query=Point+Loma+Seafoods" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🦞</div><h4>Malibu Farm Pier</h4><div class="food-rating">★ 4.5</div><p class="food-desc">Brunch sobre el pier con vista al océano. $$</p><a href="https://www.google.com/maps/search/?api=1&query=Malibu+Farm+Pier+Cafe" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🦪</div><h4>Reel Inn Malibu</h4><div class="food-rating">★ Icónico</div><p class="food-desc">Seafood shack casual · ostiones + fish & chips. $15-25</p><a href="https://www.google.com/maps/search/?api=1&query=Reel+Inn+Malibu" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍔</div><h4>JOEY Manhattan Beach</h4><div class="food-rating">★ 4.8 · 5,030</div><p class="food-desc">Steakhouse moderno · pasta lobster · cheesecake. $$</p><a href="https://www.google.com/maps/search/?api=1&query=JOEY+Manhattan+Beach" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍔</div><h4>Hinano Cafe Venice</h4><div class="food-rating">★ 4.6 · 1,740</div><p class="food-desc">Clásico vintage años 60 · cheeseburgers · jukebox. $8-15</p><a href="https://www.google.com/maps/search/?api=1&query=Hinano+Cafe+Venice" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍝</div><h4>Bottega Louie</h4><div class="food-rating">★ Top LA</div><p class="food-desc">Downtown. Italiano premium · pasta + macarons coloridos. $$</p><a href="https://www.google.com/maps/search/?api=1&query=Bottega+Louie+Downtown+Los+Angeles" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🍽️</div><h4>Bestia</h4><div class="food-rating">★ 4.7</div><p class="food-desc">Arts District. Italiano moderno · reservar con tiempo. $$$</p><a href="https://www.google.com/maps/search/?api=1&query=Bestia+Restaurant+Arts+District" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🥪</div><h4>Farmers Market Fairfax</h4><div class="food-rating">★ Histórico 1934</div><p class="food-desc">Mid-City. Mercado con 100+ puestos. $-$$</p><a href="https://www.google.com/maps/search/?api=1&query=Original+Farmers+Market+Fairfax+Los+Angeles" target="_blank" class="food-map-btn">📍 Ver mapa</a></div>
+      <div class="food-card"><div class="food-emoji">🌭</div><h4>Dodger Dogs</h4><div class="food-rating">★ Obligatorio</div><p class="food-desc">Dodger Stadium. El hot dog ÍCONO del estadio.</p><a href="https://www.google.com/maps/place/?q=place_id:ChIJdVYAVPnGwoAR3wmcg09VlJ4" target="_blank" class="food-map-btn">📍 Ver estadio</a></div>
     </div>
   </div>
 </section>
@@ -891,18 +1033,18 @@
   <div class="container">
     <div class="section-overline">Pre-Trip Checklist</div>
     <h2 class="section-title">Reservas <em>críticas</em>.</h2>
-    <p class="section-subtitle">Estas reservas debes hacer ANTES del viaje para no quedarte sin lugar.</p>
+    <p class="section-subtitle">Estas reservas debes hacer ANTES del viaje.</p>
     <div class="reservas-list">
       <div class="reserva-item">
-        <div class="reserva-info"><strong>🍷 Malibu Wine Tour (VW Bus / 4x4)</strong><span>1-2 semanas antes · Especificar VW Bus o 4x4</span></div>
+        <div class="reserva-info"><strong>🍷 Malibu Wine Tour (VW Bus / 4x4)</strong><span>1-2 semanas antes · NO el hike</span></div>
         <a href="https://www.malibuwinehikes.com/tours" target="_blank" class="reserva-link">Reservar</a>
       </div>
       <div class="reserva-item">
-        <div class="reserva-info"><strong>🏛️ The Broad Museum (GRATIS)</strong><span>1-2 semanas antes · Para Infinity Mirror Room</span></div>
+        <div class="reserva-info"><strong>🏛️ The Broad Museum (GRATIS)</strong><span>1-2 semanas antes · Infinity Mirror Room</span></div>
         <a href="https://www.thebroad.org" target="_blank" class="reserva-link">Reservar</a>
       </div>
       <div class="reserva-item">
-        <div class="reserva-info"><strong>🅿️ Parking SoFi Stadium</strong><span>Cuanto antes · El precio sube el día del partido</span></div>
+        <div class="reserva-info"><strong>🅿️ Parking SoFi Stadium</strong><span>Cuanto antes · El precio sube</span></div>
         <a href="https://www.sofistadium.com" target="_blank" class="reserva-link">Reservar</a>
       </div>
       <div class="reserva-item">
@@ -910,7 +1052,7 @@
         <a href="https://www.mlb.com/dodgers/ballpark/transportation/parking" target="_blank" class="reserva-link">Reservar</a>
       </div>
       <div class="reserva-item">
-        <div class="reserva-info"><strong>🍽️ Cena Arts District jueves 17</strong><span>3-5 días antes · Bestia, Bavel, o Manuela</span></div>
+        <div class="reserva-info"><strong>🍽️ Cena Arts District jueves 17</strong><span>3-5 días antes · Bestia o Bavel</span></div>
         <a href="https://www.opentable.com" target="_blank" class="reserva-link">OpenTable</a>
       </div>
       <div class="reserva-item">
@@ -928,11 +1070,11 @@
     <div class="practical-grid">
       <div class="practical-card">
         <h4>📱 Apps Obligatorias</h4>
-        <ul><li>✈️ Aerolínea</li><li>🏠 Airbnb</li><li>🚗 Waze + Google Maps</li><li>🅿️ SpotHero</li><li>⚾ MLB Ballpark</li><li>🏈 Chargers app</li><li>🌊 Tides Near Me</li><li>🍽️ OpenTable</li></ul>
+        <ul><li>✈️ Aerolínea</li><li>🏨 Hilton Honors (Hampton)</li><li>🏠 Airbnb</li><li>🚗 Waze + Google Maps</li><li>🅿️ SpotHero</li><li>⚾ MLB Ballpark</li><li>🏈 Chargers app</li><li>🍽️ OpenTable</li></ul>
       </div>
       <div class="practical-card">
         <h4>🎒 Imprescindibles</h4>
-        <ul><li>👟 Tenis cómodos</li><li>☀️ Bloqueador SPF 50+</li><li>🕶️ Lentes de sol</li><li>🧥 Suéter ligero (noches frescas)</li><li>🩳 Trajes de baño</li><li>🔌 Cargador portátil</li><li>💧 Botella de agua</li></ul>
+        <ul><li>👟 Tenis cómodos</li><li>☀️ Bloqueador SPF 50+</li><li>🕶️ Lentes de sol</li><li>🧥 Suéter ligero</li><li>🩳 Trajes de baño</li><li>🔌 Cargador portátil</li><li>💧 Botella de agua</li></ul>
       </div>
       <div class="practical-card">
         <h4>💰 Presupuesto</h4>
